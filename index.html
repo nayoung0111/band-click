@@ -790,7 +790,11 @@ window.stopMetronome = async function() {
 window.leaveRoom = async function() {
   if (S.unsubscribe) S.unsubscribe();
   stopNow();
+  if(S.isHost){
+  await remove(ref(db, `rooms/${S.roomCode}`));
+} else {
   await remove(ref(db, `rooms/${S.roomCode}/members/${S.myId}`));
+}
   S.roomCode = '';
   document.getElementById('screen-room').classList.remove('active');
   document.getElementById('screen-lobby').classList.add('active');
