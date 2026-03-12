@@ -689,7 +689,13 @@ function enterRoom(code, roomName, isHost) {
   S.prevStartAt = null; S.prevIsPlaying = false;
 
   S.unsubscribe = onValue(S.roomRef, snap => {
-    if (!snap.exists()) return;
+    if (!snap.exists()) {
+    // 방이 삭제됨 → 로비로 이동
+    stopNow();
+    document.getElementById('screen-room').classList.remove('active');
+    document.getElementById('screen-lobby').classList.add('active');
+    return;
+  }
     const d = snap.val();
     if (d.bpm && d.bpm !== S.bpm) {
       S.bpm = d.bpm;
