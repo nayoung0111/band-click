@@ -21,7 +21,6 @@
   .screen { display:none; }
   .screen.active { display:block; }
 
-  /* LOBBY */
   .section-title { font-family:'Bebas Neue',cursive; font-size:1.2rem; letter-spacing:0.2em; color:var(--muted); margin:1.5rem 0 0.8rem; }
   .input-group { margin-bottom:0.8rem; }
   .input-group label { display:block; font-size:0.7rem; letter-spacing:0.15em; color:var(--muted); margin-bottom:0.3rem; text-transform:uppercase; }
@@ -35,7 +34,6 @@
   .divider { display:flex; align-items:center; gap:1rem; margin:1.2rem 0; color:var(--muted); font-size:0.75rem; letter-spacing:0.1em; }
   .divider::before,.divider::after { content:''; flex:1; height:1px; background:#222; }
 
-  /* ROOM HEADER */
   .room-header { display:flex; align-items:center; justify-content:space-between; margin-bottom:1.2rem; padding-bottom:1rem; border-bottom:1px solid #1e1e1e; }
   .room-name-display { font-family:'Bebas Neue',cursive; font-size:1.6rem; letter-spacing:0.1em; }
   .room-code-line { font-size:0.72rem; color:var(--muted); margin-top:0.15rem; }
@@ -44,26 +42,24 @@
   .role-host { background:rgba(255,59,59,0.12); color:var(--accent); border:1px solid rgba(255,59,59,0.25); }
   .role-member { background:rgba(255,140,0,0.1); color:var(--accent2); border:1px solid rgba(255,140,0,0.2); }
 
-  /* STATUS */
   .status-bar { display:flex; align-items:center; gap:0.5rem; padding:0.55rem 0.8rem; background:var(--surface); border:1px solid #1e1e1e; border-radius:5px; margin-bottom:1rem; font-size:0.78rem; color:var(--muted); }
   .status-dot { width:7px; height:7px; border-radius:50%; background:var(--muted); flex-shrink:0; }
   .status-dot.running { background:#2ecc71; animation:pulse 1s infinite; }
   .status-dot.countdown { background:var(--accent2); animation:pulse 0.5s infinite; }
   @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.3} }
 
-  /* BEAT */
-  .beat-display { text-align:center; margin:1.5rem 0; }
-  .beat-circle { width:160px; height:160px; border-radius:50%; border:3px solid #222; margin:0 auto; display:flex; align-items:center; justify-content:center; flex-direction:column; background:var(--surface); transition:all 0.05s; }
+  .beat-display { text-align:center; margin:1.2rem 0; }
+  .beat-circle { width:150px; height:150px; border-radius:50%; border:3px solid #222; margin:0 auto; display:flex; align-items:center; justify-content:center; flex-direction:column; background:var(--surface); transition:all 0.05s; }
   .beat-circle.beat-on { border-color:var(--accent); box-shadow:0 0 0 8px rgba(255,59,59,0.08),0 0 40px rgba(255,59,59,0.25); background:#1a0808; }
   .beat-circle.downbeat.beat-on { border-color:#fff; box-shadow:0 0 0 8px rgba(255,255,255,0.06),0 0 50px rgba(255,59,59,0.4); }
-  .bpm-big { font-family:'Bebas Neue',cursive; font-size:3.5rem; line-height:1; }
+  .bpm-big { font-family:'Bebas Neue',cursive; font-size:3.2rem; line-height:1; }
   .bpm-label { font-size:0.65rem; letter-spacing:0.25em; color:var(--muted); text-transform:uppercase; }
+  .current-song-name { font-size:0.75rem; color:var(--accent2); margin-top:0.2rem; max-width:130px; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; text-align:center; }
   .beat-dots { display:flex; justify-content:center; gap:0.5rem; margin-top:0.8rem; }
   .beat-dot { width:11px; height:11px; border-radius:50%; background:#222; border:1px solid #333; transition:all 0.05s; }
   .beat-dot.active { background:var(--accent); box-shadow:0 0 8px var(--beat-glow); border-color:var(--accent); }
   .beat-dot.downbeat.active { background:white; box-shadow:0 0 10px rgba(255,255,255,0.5); border-color:white; }
 
-  /* CONTROLS */
   .control-box { background:var(--surface); border:1px solid #1e1e1e; border-radius:8px; padding:1rem; margin-bottom:0.8rem; }
   .ctrl-top { display:flex; justify-content:space-between; align-items:center; margin-bottom:0.7rem; }
   .ctrl-label { font-size:0.65rem; letter-spacing:0.15em; color:var(--muted); text-transform:uppercase; }
@@ -78,47 +74,81 @@
   input[type="range"] { flex:1; -webkit-appearance:none; height:3px; background:#2a2a2a; border-radius:2px; outline:none; }
   input[type="range"]::-webkit-slider-thumb { -webkit-appearance:none; width:16px; height:16px; border-radius:50%; background:var(--accent); cursor:pointer; box-shadow:0 0 6px var(--beat-glow); }
 
-  /* TIME SIG */
   .time-sig-row { background:var(--surface); border:1px solid #1e1e1e; border-radius:8px; padding:0.8rem 1rem; margin-bottom:0.8rem; display:flex; align-items:center; gap:0.8rem; }
   .ts-label { font-size:0.65rem; letter-spacing:0.15em; color:var(--muted); text-transform:uppercase; white-space:nowrap; }
   .ts-btns { display:flex; gap:0.4rem; }
   .ts-btn { padding:0.3rem 0.7rem; background:var(--surface2); border:1px solid #2a2a2a; color:var(--muted); font-size:0.75rem; cursor:pointer; border-radius:3px; transition:all 0.15s; font-family:'Noto Sans KR',sans-serif; }
   .ts-btn.active { background:rgba(255,59,59,0.12); border-color:var(--accent); color:var(--accent); }
 
-  /* START/STOP */
   .btn-start { width:100%; padding:1.1rem; font-family:'Bebas Neue',cursive; font-size:1.3rem; letter-spacing:0.2em; border:none; cursor:pointer; border-radius:6px; background:var(--accent); color:white; transition:all 0.15s; margin-bottom:0.5rem; }
   .btn-start:hover { box-shadow:0 4px 24px rgba(255,59,59,0.4); transform:translateY(-1px); }
   .btn-stop { width:100%; padding:0.8rem; font-family:'Bebas Neue',cursive; font-size:1.1rem; letter-spacing:0.15em; border:1px solid #2a2a2a; background:var(--surface); color:var(--text); cursor:pointer; border-radius:6px; transition:all 0.15s; margin-bottom:0.8rem; }
   .btn-stop:hover { border-color:#555; }
 
-  /* OFFSET */
-  .offset-desc { font-size:0.68rem; color:var(--muted); margin-top:0.5rem; text-align:center; line-height:1.5; }
+  /* ========================
+     SETLIST
+  ======================== */
+  .setlist-box { background:var(--surface); border:1px solid #1e1e1e; border-radius:8px; padding:1rem; margin-bottom:0.8rem; }
+  .setlist-header { display:flex; justify-content:space-between; align-items:center; margin-bottom:0.8rem; }
+  .setlist-title { font-size:0.65rem; letter-spacing:0.15em; color:var(--muted); text-transform:uppercase; }
 
-  /* SYNC STATUS */
+  /* 곡 추가 폼 (방장만) */
+  .setlist-add-form { display:flex; gap:0.5rem; margin-bottom:0.8rem; }
+  .setlist-add-form input[type="text"] { flex:1; padding:0.6rem 0.8rem; font-size:0.85rem; }
+  .setlist-add-form input.bpm-input { width:80px; flex:none; }
+  .btn-add-song { padding:0.6rem 0.9rem; background:var(--accent); color:white; border:none; border-radius:4px; cursor:pointer; font-size:1.1rem; font-family:'Bebas Neue',cursive; letter-spacing:0.05em; transition:all 0.15s; white-space:nowrap; }
+  .btn-add-song:hover { box-shadow:0 2px 10px rgba(255,59,59,0.4); }
+
+  /* 곡 목록 */
+  .setlist-list { display:flex; flex-direction:column; gap:0.4rem; }
+  .setlist-empty { text-align:center; color:var(--muted); font-size:0.8rem; padding:1rem 0; }
+
+  .song-item {
+    display:flex; align-items:center; gap:0.6rem;
+    background:var(--surface2); border:1px solid #222;
+    border-radius:6px; padding:0.6rem 0.8rem;
+    cursor:pointer; transition:all 0.15s;
+  }
+  .song-item:hover { border-color:var(--accent); background:#1a0a0a; }
+  .song-item.active { border-color:var(--accent); background:#1a0808; box-shadow:0 0 0 1px rgba(255,59,59,0.2); }
+
+  .song-num { font-family:'Bebas Neue',cursive; font-size:0.9rem; color:var(--muted); width:18px; flex-shrink:0; }
+  .song-info { flex:1; min-width:0; }
+  .song-name { font-size:0.88rem; font-weight:700; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+  .song-bpm { font-family:'Bebas Neue',cursive; font-size:0.8rem; color:var(--accent2); letter-spacing:0.05em; margin-top:0.1rem; }
+  .song-active-badge { font-size:0.6rem; color:var(--accent); letter-spacing:0.1em; background:rgba(255,59,59,0.12); border:1px solid rgba(255,59,59,0.2); padding:0.15rem 0.4rem; border-radius:2px; white-space:nowrap; }
+  .btn-del-song { background:none; border:none; color:var(--muted); cursor:pointer; font-size:1rem; padding:0.2rem 0.4rem; border-radius:3px; transition:all 0.15s; flex-shrink:0; }
+  .btn-del-song:hover { color:var(--accent); background:rgba(255,59,59,0.1); }
+
+  /* 멤버용 현재 곡 표시 */
+  .current-song-display { background:var(--surface); border:1px solid #1e1e1e; border-radius:8px; padding:0.8rem 1rem; margin-bottom:0.8rem; display:none; }
+  .current-song-display.visible { display:block; }
+  .csd-label { font-size:0.65rem; letter-spacing:0.15em; color:var(--muted); text-transform:uppercase; margin-bottom:0.3rem; }
+  .csd-name { font-size:1rem; font-weight:700; color:var(--text); }
+  .csd-bpm { font-family:'Bebas Neue',cursive; font-size:0.9rem; color:var(--accent2); margin-top:0.1rem; }
+
+  .offset-desc { font-size:0.68rem; color:var(--muted); margin-top:0.5rem; text-align:center; line-height:1.5; }
   .sync-status { font-size:0.68rem; color:var(--muted); text-align:center; padding:0.3rem; margin-bottom:0.6rem; }
   .sync-status.good { color:#2ecc71; }
   .sync-status.measuring { color:var(--accent2); }
 
-  /* MEMBERS */
   .members-section { margin-bottom:0.8rem; }
   .members-label { font-size:0.65rem; letter-spacing:0.18em; color:var(--muted); text-transform:uppercase; margin-bottom:0.5rem; }
   .members-list { display:flex; flex-wrap:wrap; gap:0.4rem; }
   .member-chip { display:flex; align-items:center; gap:0.35rem; background:var(--surface); border:1px solid #1e1e1e; padding:0.25rem 0.65rem; border-radius:20px; font-size:0.78rem; }
   .member-dot { width:6px; height:6px; border-radius:50%; background:#2ecc71; }
 
-  /* MEMBER NOTICE */
   .member-notice { text-align:center; padding:1.2rem 1rem; background:var(--surface); border:1px solid #1e1e1e; border-radius:8px; margin-bottom:0.8rem; color:var(--muted); font-size:0.85rem; line-height:1.8; }
   .notice-icon { font-size:2rem; margin-bottom:0.4rem; }
 
-  /* COUNTDOWN */
-  .countdown-overlay { position:fixed; inset:0; background:rgba(0,0,0,0.93); display:none; align-items:center; justify-content:center; z-index:999; }
+  .countdown-overlay { position:fixed; inset:0; background:rgba(0,0,0,0.93); display:none; align-items:center; justify-content:center; z-index:999; flex-direction:column; gap:0.5rem; }
   .countdown-overlay.show { display:flex; }
+  .countdown-song { font-family:'Bebas Neue',cursive; font-size:1.2rem; color:var(--accent2); letter-spacing:0.2em; }
   .countdown-num { font-family:'Bebas Neue',cursive; font-size:11rem; color:var(--accent); text-shadow:0 0 60px var(--beat-glow); animation:countScale 0.85s ease-out; line-height:1; }
   @keyframes countScale { 0%{transform:scale(1.5);opacity:0} 20%{opacity:1} 80%{transform:scale(1);opacity:1} 100%{transform:scale(0.8);opacity:0} }
 
   .btn-leave { width:100%; background:none; border:1px solid #1e1e1e; color:var(--muted); padding:0.5rem; font-size:0.75rem; letter-spacing:0.08em; cursor:pointer; border-radius:4px; transition:all 0.15s; font-family:'Noto Sans KR',sans-serif; }
   .btn-leave:hover { border-color:#444; color:var(--text); }
-
   .toast { position:fixed; bottom:2rem; left:50%; transform:translateX(-50%) translateY(20px); background:#222; color:var(--text); padding:0.5rem 1.2rem; border-radius:20px; font-size:0.78rem; opacity:0; transition:all 0.3s; pointer-events:none; z-index:2000; border:1px solid #333; }
   .toast.show { opacity:1; transform:translateX(-50%) translateY(0); }
 </style>
@@ -168,16 +198,35 @@
       <span id="status-text">대기 중...</span>
     </div>
 
+    <!-- 비트 디스플레이 -->
     <div class="beat-display">
       <div class="beat-circle" id="beat-circle">
         <div class="bpm-big" id="bpm-display">120</div>
         <div class="bpm-label">BPM</div>
+        <div class="current-song-name" id="current-song-name"></div>
       </div>
       <div class="beat-dots" id="beat-dots"></div>
     </div>
 
     <!-- 방장 전용 -->
     <div id="host-panel">
+
+      <!-- 셋리스트 -->
+      <div class="setlist-box">
+        <div class="setlist-header">
+          <div class="setlist-title">🎵 셋리스트</div>
+        </div>
+        <div class="setlist-add-form">
+          <input type="text" id="input-song-name" placeholder="곡 이름" maxlength="30">
+          <input type="text" id="input-song-bpm" placeholder="BPM" maxlength="3" class="bpm-input" pattern="[0-9]*" inputmode="numeric">
+          <button class="btn-add-song" onclick="addSong()">+ 추가</button>
+        </div>
+        <div class="setlist-list" id="setlist-list">
+          <div class="setlist-empty">곡을 추가해보세요!</div>
+        </div>
+      </div>
+
+      <!-- BPM -->
       <div class="control-box">
         <div class="ctrl-top">
           <div class="ctrl-label">템포</div>
@@ -192,6 +241,7 @@
         </div>
       </div>
 
+      <!-- 박자 -->
       <div class="time-sig-row">
         <div class="ts-label">박자</div>
         <div class="ts-btns">
@@ -212,9 +262,15 @@
         <div class="notice-icon">🎧</div>
         이어폰 꽂고 기다리세요!<br>방장이 시작하면 자동으로 동기화돼요.
       </div>
+      <!-- 멤버용 현재 곡 표시 -->
+      <div class="current-song-display" id="current-song-display">
+        <div class="csd-label">현재 곡</div>
+        <div class="csd-name" id="csd-name">—</div>
+        <div class="csd-bpm" id="csd-bpm"></div>
+      </div>
     </div>
 
-    <!-- 딜레이 조절 (방장+멤버 모두) -->
+    <!-- 딜레이 조절 (모두) -->
     <div class="control-box">
       <div class="ctrl-top">
         <div class="ctrl-label">내 딜레이 조절</div>
@@ -227,9 +283,7 @@
         <button class="ctrl-btn" onclick="changeOffset(1)">+1</button>
         <button class="ctrl-btn" onclick="changeOffset(10)">+10</button>
       </div>
-      <div class="offset-desc">
-        소리가 늦게 들리면 ← 왼쪽 (-) / 너무 빠르면 → 오른쪽 (+)
-      </div>
+      <div class="offset-desc">소리가 늦게 들리면 ← 왼쪽 (−) / 너무 빠르면 → 오른쪽 (+)</div>
     </div>
 
     <div class="sync-status measuring" id="sync-status">⏱ 서버 시간 측정 중...</div>
@@ -244,7 +298,9 @@
 
 </div>
 
+<!-- 카운트다운 -->
 <div class="countdown-overlay" id="countdown-overlay">
+  <div class="countdown-song" id="countdown-song"></div>
   <div class="countdown-num" id="countdown-num">3</div>
 </div>
 <div class="toast" id="toast">복사됨!</div>
@@ -275,17 +331,18 @@ const S = {
   schedulerTimer: null, beatFlashTimer: null,
   roomRef: null, unsubscribe: null,
   serverTimeOffset: 0,
-  userOffsetMs: 0,        // 사용자 딜레이 조절값 (ms)
+  userOffsetMs: 0,
   prevStartAt: null, prevIsPlaying: false,
+  setlist: [],           // [{ id, name, bpm }]
+  activeSongId: null,    // 현재 선택된 곡 id
 };
 
 // ============================
-// 서버 시간 5번 측정 → 중간값 평균
+// 서버 시간 5번 측정
 // ============================
 async function syncServerTime() {
   const syncEl = document.getElementById('sync-status');
   if (syncEl) { syncEl.textContent = '⏱ 서버 시간 측정 중...'; syncEl.className = 'sync-status measuring'; }
-
   const samples = [];
   for (let i = 0; i < 5; i++) {
     await new Promise(resolve => {
@@ -296,21 +353,13 @@ async function syncServerTime() {
     });
     if (i < 4) await new Promise(r => setTimeout(r, 150));
   }
-
-  // 정렬 후 극단값(최소,최대) 제거 → 중간 3개 평균
   samples.sort((a, b) => a - b);
   const mid = samples.slice(1, 4);
   S.serverTimeOffset = mid.reduce((a, b) => a + b, 0) / mid.length;
-
-  if (syncEl) {
-    syncEl.textContent = '✓ 서버 동기화 완료';
-    syncEl.className = 'sync-status good';
-  }
+  if (syncEl) { syncEl.textContent = '✓ 서버 동기화 완료'; syncEl.className = 'sync-status good'; }
 }
 
-function serverNow() {
-  return Date.now() + S.serverTimeOffset;
-}
+function serverNow() { return Date.now() + S.serverTimeOffset; }
 
 // ============================
 // 오디오
@@ -351,30 +400,26 @@ function flashBeat(beat) {
   circle.classList.add('beat-on');
   if (beat === 0) circle.classList.add('downbeat');
   dots.forEach((d, i) => {
-    d.classList.remove('active', 'downbeat');
+    d.classList.remove('active','downbeat');
     if (i === beat) { d.classList.add('active'); if (beat === 0) d.classList.add('downbeat'); }
   });
   clearTimeout(S.beatFlashTimer);
-  S.beatFlashTimer = setTimeout(() => circle.classList.remove('beat-on', 'downbeat'), 80);
+  S.beatFlashTimer = setTimeout(() => circle.classList.remove('beat-on','downbeat'), 80);
 }
 
 function startScheduler() { S.schedulerTimer = setInterval(scheduler, 25); }
-
 function stopScheduler() {
   clearInterval(S.schedulerTimer); S.schedulerTimer = null;
-  document.getElementById('beat-circle').classList.remove('beat-on', 'downbeat');
+  document.getElementById('beat-circle').classList.remove('beat-on','downbeat');
   document.querySelectorAll('.beat-dot').forEach(d => d.classList.remove('active','downbeat'));
 }
 
 // ============================
 // 카운트다운 + 시작
-// userOffsetMs 적용: 양수면 늦게, 음수면 빠르게
 // ============================
 async function doCountdownAndStart(startAt) {
   const ctx = getAudioCtx();
   await ctx.resume();
-
-  // userOffsetMs 반영: 음수면 앞당겨서 들음, 양수면 늦게 들음
   const adjustedStartAt = startAt - S.userOffsetMs;
   const msUntilStart = adjustedStartAt - serverNow();
   if (msUntilStart < -500) return;
@@ -382,6 +427,11 @@ async function doCountdownAndStart(startAt) {
   setStatus('countdown', '카운트다운...');
   const overlay = document.getElementById('countdown-overlay');
   const numEl = document.getElementById('countdown-num');
+  const songEl = document.getElementById('countdown-song');
+
+  // 카운트다운에 현재 곡 이름 표시
+  const activeSong = S.setlist.find(s => s.id === S.activeSongId);
+  songEl.textContent = activeSong ? activeSong.name : '';
   overlay.classList.add('show');
 
   let count = Math.ceil((startAt - serverNow()) / 1000);
@@ -393,7 +443,7 @@ async function doCountdownAndStart(startAt) {
     if (count <= 0) {
       clearInterval(tick);
       overlay.classList.remove('show');
-      setStatus('running', '재생 중 🎵');
+      setStatus('running', activeSong ? `▶ ${activeSong.name}` : '재생 중 🎵');
     } else {
       numEl.textContent = count;
       numEl.style.animation = 'none'; void numEl.offsetHeight; numEl.style.animation = 'countScale 0.85s ease-out';
@@ -402,7 +452,6 @@ async function doCountdownAndStart(startAt) {
 
   const waitMs = adjustedStartAt - serverNow() - 30;
   await new Promise(r => setTimeout(r, Math.max(0, waitMs)));
-
   const audioNow = ctx.currentTime;
   const remainSec = Math.max(0, (adjustedStartAt - serverNow()) / 1000);
   S.nextBeatTime = audioNow + remainSec;
@@ -418,7 +467,77 @@ function stopNow() {
 }
 
 // ============================
-// 방 생성/참가
+// 셋리스트
+// ============================
+window.addSong = function() {
+  const nameEl = document.getElementById('input-song-name');
+  const bpmEl = document.getElementById('input-song-bpm');
+  const name = nameEl.value.trim();
+  const bpm = parseInt(bpmEl.value);
+  if (!name) { alert('곡 이름을 입력하세요!'); return; }
+  if (!bpm || bpm < 40 || bpm > 240) { alert('BPM을 40~240 사이로 입력하세요!'); return; }
+
+  const song = { id: Date.now().toString(), name, bpm };
+  S.setlist.push(song);
+  nameEl.value = ''; bpmEl.value = '';
+
+  // Firebase에 저장
+  if (S.roomRef) update(S.roomRef, { setlist: S.setlist });
+  renderSetlist();
+}
+
+window.deleteSong = function(id) {
+  S.setlist = S.setlist.filter(s => s.id !== id);
+  if (S.activeSongId === id) {
+    S.activeSongId = null;
+    document.getElementById('current-song-name').textContent = '';
+  }
+  if (S.roomRef) update(S.roomRef, { setlist: S.setlist, activeSongId: S.activeSongId });
+  renderSetlist();
+}
+
+window.selectSong = function(id) {
+  const song = S.setlist.find(s => s.id === id);
+  if (!song) return;
+
+  S.activeSongId = id;
+  S.bpm = song.bpm;
+
+  // BPM 업데이트
+  document.getElementById('bpm-display').textContent = song.bpm;
+  document.getElementById('bpm-readout').textContent = song.bpm + ' BPM';
+  document.getElementById('bpm-slider').value = song.bpm;
+  document.getElementById('current-song-name').textContent = song.name;
+
+  // Firebase 동기화
+  if (S.roomRef) update(S.roomRef, { bpm: song.bpm, activeSongId: id });
+
+  renderSetlist();
+  showToast(`${song.name} — ${song.bpm} BPM`);
+}
+
+function renderSetlist() {
+  const list = document.getElementById('setlist-list');
+  if (!list) return;
+  if (S.setlist.length === 0) {
+    list.innerHTML = '<div class="setlist-empty">곡을 추가해보세요!</div>';
+    return;
+  }
+  list.innerHTML = S.setlist.map((song, i) => `
+    <div class="song-item ${song.id === S.activeSongId ? 'active' : ''}" onclick="selectSong('${song.id}')">
+      <div class="song-num">${i + 1}</div>
+      <div class="song-info">
+        <div class="song-name">${song.name}</div>
+        <div class="song-bpm">${song.bpm} BPM</div>
+      </div>
+      ${song.id === S.activeSongId ? '<div class="song-active-badge">선택됨</div>' : ''}
+      <button class="btn-del-song" onclick="event.stopPropagation(); deleteSong('${song.id}')">✕</button>
+    </div>
+  `).join('');
+}
+
+// ============================
+// 방 생성 / 참가
 // ============================
 function generateCode() { return Math.random().toString(36).slice(2, 8).toUpperCase(); }
 
@@ -431,7 +550,12 @@ window.createRoom = async function() {
   const code = generateCode();
   S.myName = name; S.isHost = true; S.roomCode = code;
 
-  await set(ref(db, 'rooms/' + code), { name: roomName, bpm: 120, timeSig: 4, isPlaying: false, startAt: null, createdAt: serverTimestamp() });
+  await set(ref(db, 'rooms/' + code), {
+    name: roomName, bpm: 120, timeSig: 4,
+    isPlaying: false, startAt: null,
+    setlist: [], activeSongId: null,
+    createdAt: serverTimestamp(),
+  });
   await set(ref(db, `rooms/${code}/members/${S.myId}`), { name, isHost: true, joinedAt: serverTimestamp() });
 
   enterRoom(code, roomName, true);
@@ -467,6 +591,7 @@ function enterRoom(code, roomName, isHost) {
   document.getElementById('member-panel').style.display = isHost ? 'none' : 'block';
   renderBeatDots(4);
   setStatus('', '대기 중...');
+
   S.roomRef = ref(db, 'rooms/' + code);
   S.prevStartAt = null; S.prevIsPlaying = false;
 
@@ -474,20 +599,53 @@ function enterRoom(code, roomName, isHost) {
     if (!snap.exists()) return;
     const d = snap.val();
 
+    // BPM
     if (d.bpm && d.bpm !== S.bpm) {
       S.bpm = d.bpm;
       document.getElementById('bpm-display').textContent = d.bpm;
       document.getElementById('bpm-readout').textContent = d.bpm + ' BPM';
       const sl = document.getElementById('bpm-slider'); if (sl) sl.value = d.bpm;
     }
+
+    // 박자
     if (d.timeSig && d.timeSig !== S.timeSig) {
       S.timeSig = d.timeSig;
       renderBeatDots(d.timeSig);
       document.querySelectorAll('.ts-btn').forEach(b => b.classList.remove('active'));
       const btn = document.getElementById('ts-' + d.timeSig); if (btn) btn.classList.add('active');
     }
+
+    // 셋리스트 동기화
+    if (d.setlist !== undefined) {
+      S.setlist = Array.isArray(d.setlist) ? d.setlist : Object.values(d.setlist || {});
+      if (!isHost) renderMemberSetlist(d.setlist);
+      else renderSetlist();
+    }
+
+    // 선택된 곡
+    if (d.activeSongId !== undefined && d.activeSongId !== S.activeSongId) {
+      S.activeSongId = d.activeSongId;
+      const song = S.setlist.find(s => s.id === d.activeSongId);
+      document.getElementById('current-song-name').textContent = song ? song.name : '';
+
+      // 멤버용 현재 곡 표시
+      const csd = document.getElementById('current-song-display');
+      if (csd) {
+        if (song) {
+          csd.classList.add('visible');
+          document.getElementById('csd-name').textContent = song.name;
+          document.getElementById('csd-bpm').textContent = song.bpm + ' BPM';
+        } else {
+          csd.classList.remove('visible');
+        }
+      }
+      if (!isHost) renderSetlist();
+    }
+
+    // 멤버 목록
     if (d.members) renderMembers(d.members);
 
+    // 시작/정지
     if (!isHost && d.isPlaying && d.startAt && d.startAt !== S.prevStartAt && !S.isPlaying) {
       S.prevStartAt = d.startAt;
       doCountdownAndStart(d.startAt);
@@ -495,6 +653,11 @@ function enterRoom(code, roomName, isHost) {
     if (!isHost && !d.isPlaying && S.prevIsPlaying && S.isPlaying) stopNow();
     S.prevIsPlaying = d.isPlaying;
   });
+}
+
+// 멤버용 셋리스트 (읽기 전용, 선택 불가)
+function renderMemberSetlist(setlist) {
+  // 멤버는 셋리스트 편집 UI 없으므로 현재 곡 표시만
 }
 
 window.startMetronome = async function() {
@@ -518,22 +681,26 @@ window.leaveRoom = async function() {
   document.getElementById('screen-lobby').classList.add('active');
 }
 
-// ============================
-// BPM / 박자
-// ============================
+// BPM
 window.changeBpm = function(d) {
   S.bpm = Math.min(240, Math.max(40, S.bpm + d));
+  S.activeSongId = null;
+  document.getElementById('current-song-name').textContent = '';
   document.getElementById('bpm-display').textContent = S.bpm;
   document.getElementById('bpm-readout').textContent = S.bpm + ' BPM';
   document.getElementById('bpm-slider').value = S.bpm;
-  if (S.roomRef) update(S.roomRef, { bpm: S.bpm });
+  if (S.roomRef) update(S.roomRef, { bpm: S.bpm, activeSongId: null });
+  renderSetlist();
 }
 
 window.setBpmSlider = function(val) {
   S.bpm = parseInt(val);
+  S.activeSongId = null;
+  document.getElementById('current-song-name').textContent = '';
   document.getElementById('bpm-display').textContent = S.bpm;
   document.getElementById('bpm-readout').textContent = S.bpm + ' BPM';
-  if (S.roomRef) update(S.roomRef, { bpm: S.bpm });
+  if (S.roomRef) update(S.roomRef, { bpm: S.bpm, activeSongId: null });
+  renderSetlist();
 }
 
 window.setTimeSig = function(n) {
@@ -544,41 +711,32 @@ window.setTimeSig = function(n) {
   if (S.roomRef) update(S.roomRef, { timeSig: n });
 }
 
-// ============================
-// 딜레이 오프셋 조절
-// ============================
+// 딜레이
 window.changeOffset = function(delta) {
   S.userOffsetMs = Math.min(200, Math.max(-200, S.userOffsetMs + delta));
   updateOffsetDisplay();
 }
-
 window.setOffsetSlider = function(val) {
   S.userOffsetMs = parseInt(val);
   updateOffsetDisplay();
 }
-
 function updateOffsetDisplay() {
   const el = document.getElementById('offset-readout');
-  const sl = document.getElementById('offset-slider');
-  sl.value = S.userOffsetMs;
-  if (S.userOffsetMs < 0) {
-    el.textContent = S.userOffsetMs + ' ms';
-    el.className = 'ctrl-readout blue';
-  } else if (S.userOffsetMs > 0) {
-    el.textContent = '+' + S.userOffsetMs + ' ms';
-    el.className = 'ctrl-readout orange';
-  } else {
-    el.textContent = '0 ms';
-    el.className = 'ctrl-readout muted';
-  }
+  document.getElementById('offset-slider').value = S.userOffsetMs;
+  if (S.userOffsetMs < 0) { el.textContent = S.userOffsetMs + ' ms'; el.className = 'ctrl-readout blue'; }
+  else if (S.userOffsetMs > 0) { el.textContent = '+' + S.userOffsetMs + ' ms'; el.className = 'ctrl-readout orange'; }
+  else { el.textContent = '0 ms'; el.className = 'ctrl-readout muted'; }
 }
 
-// ============================
 // UI 헬퍼
-// ============================
 window.copyCode = function() {
   navigator.clipboard.writeText(S.roomCode).catch(() => {});
+  showToast('복사됨!');
+}
+
+function showToast(msg) {
   const toast = document.getElementById('toast');
+  toast.textContent = msg;
   toast.classList.add('show');
   setTimeout(() => toast.classList.remove('show'), 2000);
 }
