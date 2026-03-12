@@ -15,7 +15,7 @@
     --accent-light: rgba(60,65,205,0.08);
     --accent-mid: rgba(60,65,205,0.18);
     --accent2: #6b6ef5;
-    --text: #111118;.bpm-big
+    --text: #111118;
     --text2: #444458;
     --muted: #9999b0;
     --border: #e2e2ee;
@@ -25,7 +25,6 @@
   * { margin:0; padding:0; box-sizing:border-box; -webkit-tap-highlight-color:transparent; }
   body { background:var(--bg); color:var(--text); font-family:'Noto Sans KR',sans-serif; min-height:100vh; overflow-x:hidden; }
 
-  /* HEADER */
   header {
     padding:1.2rem 1.5rem 1rem;
     border-bottom:1px solid var(--border);
@@ -33,118 +32,55 @@
     background:var(--bg);
     position:sticky; top:0; z-index:100;
   }
-  .logo-mark {
-    width:32px; height:32px; background:var(--accent);
-    border-radius:8px; display:flex; align-items:center; justify-content:center;
-  }
+  .logo-mark { width:32px; height:32px; background:var(--accent); border-radius:8px; display:flex; align-items:center; justify-content:center; }
   .logo-mark svg { width:18px; height:18px; fill:white; }
   .logo-text { font-size:1.15rem; font-weight:900; color:var(--text); letter-spacing:-0.01em; }
   .logo-text span { color:var(--accent); }
-  .logo-tagline { font-size:0.72rem; color:var(--muted); font-weight:400; margin-left:0.3rem; }
 
   .app { max-width:460px; margin:0 auto; padding:1.5rem; }
   .screen { display:none; }
   .screen.active { display:block; }
 
-  /* ========================
-     LOBBY
-  ======================== */
+  /* LOBBY */
   .lobby-hero { margin-bottom:2rem; padding-top:0.5rem; }
   .lobby-hero h1 { font-size:1.6rem; font-weight:900; color:var(--text); line-height:1.3; }
   .lobby-hero h1 span { color:var(--accent); }
   .lobby-hero p { font-size:0.85rem; color:var(--muted); margin-top:0.4rem; font-weight:400; }
-
   .lobby-section { margin-bottom:1.5rem; }
-  .lobby-section-title {
-    font-size:1rem; font-weight:600; color:var(--text);
-    margin-bottom:1rem; padding-bottom:0.5rem;
-    border-bottom:2px solid var(--accent);
-    display:inline-block;
-  }
-
+  .lobby-section-title { font-size:1rem; font-weight:600; color:var(--text); margin-bottom:1rem; padding-bottom:0.5rem; border-bottom:2px solid var(--accent); display:inline-block; }
   .input-group { margin-bottom:0.75rem; }
   .input-group label { display:block; font-size:0.72rem; font-weight:600; color:var(--text2); margin-bottom:0.35rem; letter-spacing:0.02em; }
-
-  input[type="text"] {
-    width:100%; background:var(--surface);
-    border:1.5px solid var(--border); color:var(--text);
-    padding:0.85rem 1rem; font-size:0.95rem;
-    font-family:'Noto Sans KR',sans-serif; font-weight:400;
-    outline:none; border-radius:10px; transition:all 0.2s;
-  }
+  input[type="text"] { width:100%; background:var(--surface); border:1.5px solid var(--border); color:var(--text); padding:0.85rem 1rem; font-size:0.95rem; font-family:'Noto Sans KR',sans-serif; font-weight:400; outline:none; border-radius:10px; transition:all 0.2s; }
   input[type="text"]:focus { border-color:var(--accent); background:var(--bg); box-shadow:0 0 0 3px var(--accent-light); }
   input[type="text"]::placeholder { color:var(--muted); }
-
-  .btn {
-    width:100%; padding:0.95rem;
-    font-family:'Noto Sans KR',sans-serif; font-size:0.95rem; font-weight:700;
-    border:none; cursor:pointer; border-radius:10px;
-    transition:all 0.15s; margin-bottom:0.5rem;
-    letter-spacing:0.01em;
-  }
+  .btn { width:100%; padding:0.95rem; font-family:'Noto Sans KR',sans-serif; font-size:0.95rem; font-weight:700; border:none; cursor:pointer; border-radius:10px; transition:all 0.15s; margin-bottom:0.5rem; letter-spacing:0.01em; }
   .btn-primary { background:var(--accent); color:white; }
   .btn-primary:hover { background:#3035b8; box-shadow:0 4px 16px rgba(60,65,205,0.3); transform:translateY(-1px); }
   .btn-primary:active { transform:translateY(0); }
-  .btn-secondary {
-    background:var(--bg); color:var(--accent);
-    border:1.5px solid var(--accent);
-  }
+  .btn-secondary { background:var(--bg); color:var(--accent); border:1.5px solid var(--accent); }
   .btn-secondary:hover { background:var(--accent-light); }
-
-  .lobby-divider {
-    display:flex; align-items:center; gap:0.8rem;
-    margin:1.8rem 0 1.5rem; color:var(--muted); font-size:0.8rem; font-weight:400;
-  }
+  .lobby-divider { display:flex; align-items:center; gap:0.8rem; margin:1.8rem 0 1.5rem; color:var(--muted); font-size:0.8rem; font-weight:400; }
   .lobby-divider::before,.lobby-divider::after { content:''; flex:1; height:1px; background:var(--border); }
 
-  /* ========================
-     ROOM SCREEN
-  ======================== */
-  .room-header {
-    display:flex; align-items:center; justify-content:space-between;
-    margin-bottom:1.2rem; padding-bottom:1rem; border-bottom:1px solid var(--border);
-  }
+  /* ROOM */
+  .room-header { display:flex; align-items:center; justify-content:space-between; margin-bottom:1.2rem; padding-bottom:1rem; border-bottom:1px solid var(--border); }
   .room-name-display { font-size:1.3rem; font-weight:900; color:var(--text); }
   .room-code-line { font-size:0.72rem; color:var(--muted); margin-top:0.2rem; font-weight:400; }
   .room-code-line span { color:var(--accent); font-weight:700; cursor:pointer; }
-
-  .role-badge {
-    padding:0.3rem 0.75rem; border-radius:20px;
-    font-size:0.68rem; font-weight:700; letter-spacing:0.03em;
-  }
+  .role-badge { padding:0.3rem 0.75rem; border-radius:20px; font-size:0.68rem; font-weight:700; letter-spacing:0.03em; }
   .role-host { background:var(--accent-light); color:var(--accent); border:1px solid var(--accent-mid); }
   .role-member { background:#f0f0ff; color:var(--accent2); border:1px solid #d0d0fa; }
 
-  /* STATUS */
-  .status-bar {
-    display:flex; align-items:center; gap:0.5rem;
-    padding:0.6rem 0.9rem; background:var(--surface);
-    border:1px solid var(--border); border-radius:8px;
-    margin-bottom:1rem; font-size:0.78rem; color:var(--muted); font-weight:400;
-  }
+  .status-bar { display:flex; align-items:center; gap:0.5rem; padding:0.6rem 0.9rem; background:var(--surface); border:1px solid var(--border); border-radius:8px; margin-bottom:1rem; font-size:0.78rem; color:var(--muted); font-weight:400; }
   .status-dot { width:7px; height:7px; border-radius:50%; background:var(--muted); flex-shrink:0; }
   .status-dot.running { background:#22c55e; animation:pulse 1s infinite; }
   .status-dot.countdown { background:var(--accent); animation:pulse 0.5s infinite; }
   @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.3} }
 
-  /* BEAT CIRCLE */
   .beat-display { text-align:center; margin:1.2rem 0; }
-  .beat-circle {
-    width:155px; height:155px; border-radius:50%;
-    border:3px solid var(--border); margin:0 auto;
-    display:flex; align-items:center; justify-content:center;
-    flex-direction:column; background:var(--surface); transition:all 0.05s;
-  }
-  .beat-circle.beat-on {
-    border-color:var(--accent);
-    box-shadow:0 0 0 8px var(--accent-light), 0 0 30px rgba(60,65,205,0.2);
-    background:#f0f0ff;
-  }
-  .beat-circle.downbeat.beat-on {
-    border-color:var(--accent);
-    box-shadow:0 0 0 10px var(--accent-mid), 0 0 40px rgba(60,65,205,0.3);
-    background:#e8e8ff;
-  }
+  .beat-circle { width:155px; height:155px; border-radius:50%; border:3px solid var(--border); margin:0 auto; display:flex; align-items:center; justify-content:center; flex-direction:column; background:var(--surface); transition:all 0.05s; }
+  .beat-circle.beat-on { border-color:var(--accent); box-shadow:0 0 0 8px var(--accent-light), 0 0 30px rgba(60,65,205,0.2); background:#f0f0ff; }
+  .beat-circle.downbeat.beat-on { border-color:var(--accent); box-shadow:0 0 0 10px var(--accent-mid), 0 0 40px rgba(60,65,205,0.3); background:#e8e8ff; }
   .bpm-big { font-size:3.2rem; font-weight:700; line-height:1; color:var(--text); font-family:'Bebas Neue',cursive; }
   .bpm-label { font-size:0.65rem; font-weight:600; color:var(--muted); text-transform:uppercase; letter-spacing:0.15em; }
   .current-song-name { font-size:0.72rem; color:var(--accent); margin-top:0.25rem; max-width:130px; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; font-weight:600; }
@@ -153,11 +89,7 @@
   .beat-dot.active { background:var(--accent); box-shadow:0 0 8px var(--beat-glow); border-color:var(--accent); }
   .beat-dot.downbeat.active { background:var(--accent); box-shadow:0 0 12px var(--beat-glow); }
 
-  /* CONTROL BOX */
-  .control-box {
-    background:var(--surface); border:1px solid var(--border);
-    border-radius:12px; padding:1rem; margin-bottom:0.8rem;
-  }
+  .control-box { background:var(--surface); border:1px solid var(--border); border-radius:12px; padding:1rem; margin-bottom:0.8rem; }
   .ctrl-top { display:flex; justify-content:space-between; align-items:center; margin-bottom:0.7rem; }
   .ctrl-label { font-size:0.7rem; font-weight:600; color:var(--muted); text-transform:uppercase; letter-spacing:0.08em; }
   .ctrl-readout { font-size:0.95rem; font-weight:700; }
@@ -166,116 +98,51 @@
   .ctrl-readout.orange { color:#f57c00; }
   .ctrl-readout.muted { color:var(--muted); }
   .btn-row { display:flex; align-items:center; gap:0.5rem; }
-  .ctrl-btn {
-    width:38px; height:38px; border-radius:8px;
-    border:1.5px solid var(--border); background:var(--bg);
-    color:var(--text2); font-size:0.85rem; font-weight:600; cursor:pointer;
-    display:flex; align-items:center; justify-content:center;
-    transition:all 0.15s; flex-shrink:0;
-    font-family:'Noto Sans KR',sans-serif;
-  }
+  .ctrl-btn { width:38px; height:38px; border-radius:8px; border:1.5px solid var(--border); background:var(--bg); color:var(--text2); font-size:0.85rem; font-weight:600; cursor:pointer; display:flex; align-items:center; justify-content:center; transition:all 0.15s; flex-shrink:0; font-family:'Noto Sans KR',sans-serif; }
   .ctrl-btn:hover { border-color:var(--accent); color:var(--accent); background:var(--accent-light); }
-
   input[type="range"] { flex:1; -webkit-appearance:none; height:4px; background:var(--surface2); border-radius:4px; outline:none; }
   input[type="range"]::-webkit-slider-thumb { -webkit-appearance:none; width:18px; height:18px; border-radius:50%; background:var(--accent); cursor:pointer; box-shadow:0 2px 6px var(--beat-glow); }
 
-  /* TIME SIG */
-  .time-sig-row {
-    background:var(--surface); border:1px solid var(--border);
-    border-radius:12px; padding:0.8rem 1rem; margin-bottom:0.8rem;
-    display:flex; align-items:center; gap:0.8rem;
-  }
+  .time-sig-row { background:var(--surface); border:1px solid var(--border); border-radius:12px; padding:0.8rem 1rem; margin-bottom:0.8rem; display:flex; align-items:center; gap:0.8rem; }
   .ts-label { font-size:0.7rem; font-weight:600; color:var(--muted); text-transform:uppercase; letter-spacing:0.08em; white-space:nowrap; }
   .ts-btns { display:flex; gap:0.4rem; }
-  .ts-btn {
-    padding:0.3rem 0.75rem; background:var(--bg);
-    border:1.5px solid var(--border); color:var(--muted);
-    font-size:0.78rem; font-weight:600; cursor:pointer;
-    border-radius:6px; transition:all 0.15s;
-    font-family:'Noto Sans KR',sans-serif;
-  }
+  .ts-btn { padding:0.3rem 0.75rem; background:var(--bg); border:1.5px solid var(--border); color:var(--muted); font-size:0.78rem; font-weight:600; cursor:pointer; border-radius:6px; transition:all 0.15s; font-family:'Noto Sans KR',sans-serif; }
   .ts-btn.active { background:var(--accent-light); border-color:var(--accent); color:var(--accent); }
 
-  /* START / STOP */
-  .btn-start {
-    width:100%; padding:1.1rem;
-    font-family:'Noto Sans KR',sans-serif; font-size:1rem; font-weight:700;
-    border:none; cursor:pointer; border-radius:12px;
-    background:var(--accent); color:white;
-    transition:all 0.15s; margin-bottom:0.5rem;
-  }
+  .btn-start { width:100%; padding:1.1rem; font-family:'Noto Sans KR',sans-serif; font-size:1rem; font-weight:700; border:none; cursor:pointer; border-radius:12px; background:var(--accent); color:white; transition:all 0.15s; margin-bottom:0.5rem; }
   .btn-start:hover { background:#3035b8; box-shadow:0 4px 20px rgba(60,65,205,0.35); transform:translateY(-1px); }
-  .btn-stop {
-    width:100%; padding:0.85rem;
-    font-family:'Noto Sans KR',sans-serif; font-size:0.95rem; font-weight:600;
-    border:1.5px solid var(--border); background:var(--bg); color:var(--text2);
-    cursor:pointer; border-radius:12px; transition:all 0.15s; margin-bottom:0.8rem;
-  }
+  .btn-stop { width:100%; padding:0.85rem; font-family:'Noto Sans KR',sans-serif; font-size:0.95rem; font-weight:600; border:1.5px solid var(--border); background:var(--bg); color:var(--text2); cursor:pointer; border-radius:12px; transition:all 0.15s; margin-bottom:0.8rem; }
   .btn-stop:hover { border-color:var(--danger); color:var(--danger); }
 
-  /* ========================
-     SETLIST
-  ======================== */
-  .setlist-box {
-    background:var(--surface); border:1px solid var(--border);
-    border-radius:12px; padding:1rem; margin-bottom:0.8rem;
-  }
+  /* SETLIST */
+  .setlist-box { background:var(--surface); border:1px solid var(--border); border-radius:12px; padding:1rem; margin-bottom:0.8rem; }
   .setlist-header { display:flex; justify-content:space-between; align-items:center; margin-bottom:0.8rem; }
   .setlist-title { font-size:0.7rem; font-weight:700; color:var(--muted); text-transform:uppercase; letter-spacing:0.08em; }
-
   .setlist-add-form { display:flex; gap:0.5rem; margin-bottom:0.8rem; }
   .setlist-add-form input[type="text"] { flex:1; padding:0.6rem 0.8rem; font-size:0.85rem; border-radius:8px; }
   .setlist-add-form input.bpm-input { width:76px; flex:none; }
-  .btn-add-song {
-    padding:0.6rem 0.9rem; background:var(--accent); color:white;
-    border:none; border-radius:8px; cursor:pointer;
-    font-size:0.85rem; font-weight:700;
-    font-family:'Noto Sans KR',sans-serif;
-    transition:all 0.15s; white-space:nowrap;
-  }
+  .btn-add-song { padding:0.6rem 0.9rem; background:var(--accent); color:white; border:none; border-radius:8px; cursor:pointer; font-size:0.85rem; font-weight:700; font-family:'Noto Sans KR',sans-serif; transition:all 0.15s; white-space:nowrap; }
   .btn-add-song:hover { background:#3035b8; }
-
   .setlist-list { display:flex; flex-direction:column; gap:0.4rem; }
   .setlist-empty { text-align:center; color:var(--muted); font-size:0.8rem; padding:1rem 0; font-weight:400; }
-
-  .song-item {
-    display:flex; align-items:center; gap:0.6rem;
-    background:var(--bg); border:1.5px solid var(--border);
-    border-radius:8px; padding:0.65rem 0.8rem;
-    cursor:pointer; transition:all 0.15s;
-  }
+  .song-item { display:flex; align-items:center; gap:0.6rem; background:var(--bg); border:1.5px solid var(--border); border-radius:8px; padding:0.65rem 0.8rem; cursor:pointer; transition:all 0.15s; }
   .song-item:hover { border-color:var(--accent); background:var(--accent-light); }
   .song-item.active { border-color:var(--accent); background:var(--accent-light); box-shadow:0 0 0 1px var(--accent-mid); }
-
   .song-num { font-size:0.82rem; font-weight:700; color:var(--muted); width:18px; flex-shrink:0; }
   .song-info { flex:1; min-width:0; }
   .song-name { font-size:0.88rem; font-weight:700; color:var(--text); white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
   .song-bpm { font-size:0.78rem; font-weight:600; color:var(--accent2); margin-top:0.1rem; }
-  .song-active-badge {
-    font-size:0.62rem; font-weight:700; color:var(--accent);
-    background:var(--accent-light); border:1px solid var(--accent-mid);
-    padding:0.15rem 0.45rem; border-radius:4px; white-space:nowrap;
-  }
-  .btn-del-song {
-    background:none; border:none; color:var(--muted);
-    cursor:pointer; font-size:0.9rem; padding:0.25rem 0.4rem;
-    border-radius:4px; transition:all 0.15s; flex-shrink:0;
-  }
+  .song-active-badge { font-size:0.62rem; font-weight:700; color:var(--accent); background:var(--accent-light); border:1px solid var(--accent-mid); padding:0.15rem 0.45rem; border-radius:4px; white-space:nowrap; }
+  .btn-del-song { background:none; border:none; color:var(--muted); cursor:pointer; font-size:0.9rem; padding:0.25rem 0.4rem; border-radius:4px; transition:all 0.15s; flex-shrink:0; }
   .btn-del-song:hover { color:var(--danger); background:#fff0f0; }
 
-  /* 멤버용 현재 곡 */
-  .current-song-display {
-    background:var(--accent-light); border:1.5px solid var(--accent-mid);
-    border-radius:12px; padding:0.9rem 1rem; margin-bottom:0.8rem; display:none;
-  }
+  .current-song-display { background:var(--accent-light); border:1.5px solid var(--accent-mid); border-radius:12px; padding:0.9rem 1rem; margin-bottom:0.8rem; display:none; }
   .current-song-display.visible { display:block; }
   .csd-label { font-size:0.68rem; font-weight:600; color:var(--accent); text-transform:uppercase; letter-spacing:0.08em; margin-bottom:0.3rem; }
   .csd-name { font-size:1rem; font-weight:700; color:var(--text); }
   .csd-bpm { font-size:0.85rem; font-weight:600; color:var(--accent2); margin-top:0.15rem; }
-
   .offset-desc { font-size:0.68rem; color:var(--muted); margin-top:0.5rem; text-align:center; line-height:1.5; font-weight:400; }
 
-  /* SYNC STATUS */
   .sync-status { font-size:0.68rem; font-weight:500; color:var(--muted); text-align:center; padding:0.3rem; margin-bottom:0.6rem; }
   .sync-status.good { color:#22c55e; }
   .sync-status.measuring { color:var(--accent); }
@@ -284,59 +151,29 @@
   .members-section { margin-bottom:0.8rem; }
   .members-label { font-size:0.68rem; font-weight:700; color:var(--muted); text-transform:uppercase; letter-spacing:0.08em; margin-bottom:0.5rem; }
   .members-list { display:flex; flex-wrap:wrap; gap:0.4rem; }
-  .member-chip {
-    display:flex; align-items:center; gap:0.35rem;
-    background:var(--surface); border:1px solid var(--border);
-    padding:0.28rem 0.7rem; border-radius:20px; font-size:0.78rem; font-weight:500;
-  }
+  .member-chip { display:flex; align-items:center; gap:0.35rem; background:var(--surface); border:1px solid var(--border); padding:0.28rem 0.7rem; border-radius:20px; font-size:0.78rem; font-weight:500; }
   .member-dot { width:6px; height:6px; border-radius:50%; background:#22c55e; }
+  .btn-transfer { background:none; border:1px solid var(--border); color:var(--muted); font-size:0.65rem; padding:0.1rem 0.4rem; border-radius:4px; cursor:pointer; margin-left:0.2rem; font-family:'Noto Sans KR',sans-serif; transition:all 0.15s; }
+  .btn-transfer:hover { border-color:var(--accent); color:var(--accent); background:var(--accent-light); }
 
-  /* MEMBER NOTICE */
-  .member-notice {
-    text-align:center; padding:1.3rem 1rem;
-    background:var(--surface); border:1px solid var(--border);
-    border-radius:12px; margin-bottom:0.8rem;
-    color:var(--muted); font-size:0.85rem; line-height:1.8; font-weight:400;
-  }
+  .member-notice { text-align:center; padding:1.3rem 1rem; background:var(--surface); border:1px solid var(--border); border-radius:12px; margin-bottom:0.8rem; color:var(--muted); font-size:0.85rem; line-height:1.8; font-weight:400; }
   .notice-icon { font-size:1.8rem; margin-bottom:0.4rem; }
 
-  /* COUNTDOWN */
-  .countdown-overlay {
-    position:fixed; inset:0; background:rgba(255,255,255,0.97);
-    display:none; align-items:center; justify-content:center;
-    z-index:999; flex-direction:column; gap:0.5rem;
-  }
+  .countdown-overlay { position:fixed; inset:0; background:rgba(255,255,255,0.97); display:none; align-items:center; justify-content:center; z-index:999; flex-direction:column; gap:0.5rem; }
   .countdown-overlay.show { display:flex; }
   .countdown-song { font-size:1rem; font-weight:700; color:var(--accent); letter-spacing:0.05em; }
-  .countdown-num {
-    font-size:10rem; font-weight:900; color:var(--accent);
-    text-shadow:0 0 40px var(--beat-glow);
-    animation:countScale 0.85s ease-out; line-height:1;
-  }
+  .countdown-num { font-size:10rem; font-weight:900; color:var(--accent); text-shadow:0 0 40px var(--beat-glow); animation:countScale 0.85s ease-out; line-height:1; }
   @keyframes countScale { 0%{transform:scale(1.4);opacity:0} 20%{opacity:1} 80%{transform:scale(1);opacity:1} 100%{transform:scale(0.85);opacity:0} }
 
-  .btn-leave {
-    width:100%; background:none; border:1px solid var(--border);
-    color:var(--muted); padding:0.55rem; font-size:0.78rem; font-weight:500;
-    cursor:pointer; border-radius:8px; transition:all 0.15s;
-    font-family:'Noto Sans KR',sans-serif;
-  }
+  .btn-leave { width:100%; background:none; border:1px solid var(--border); color:var(--muted); padding:0.55rem; font-size:0.78rem; font-weight:500; cursor:pointer; border-radius:8px; transition:all 0.15s; font-family:'Noto Sans KR',sans-serif; }
   .btn-leave:hover { border-color:var(--danger); color:var(--danger); }
 
-  .toast {
-    position:fixed; bottom:2rem; left:50%;
-    transform:translateX(-50%) translateY(20px);
-    background:var(--text); color:white;
-    padding:0.55rem 1.3rem; border-radius:20px;
-    font-size:0.78rem; font-weight:500;
-    opacity:0; transition:all 0.3s; pointer-events:none; z-index:2000;
-  }
+  .toast { position:fixed; bottom:2rem; left:50%; transform:translateX(-50%) translateY(20px); background:var(--text); color:white; padding:0.55rem 1.3rem; border-radius:20px; font-size:0.78rem; font-weight:500; opacity:0; transition:all 0.3s; pointer-events:none; z-index:2000; }
   .toast.show { opacity:1; transform:translateX(-50%) translateY(0); }
 </style>
 </head>
 <body>
 
-<!-- HEADER -->
 <header>
   <div class="logo-mark">
     <svg viewBox="0 0 24 24"><path d="M12 3a9 9 0 100 18A9 9 0 0012 3zm0 2a7 7 0 110 14A7 7 0 0112 5zm-.5 3v5.25l4.5 2.67-.75 1.23L10 14V8h1.5z"/></svg>
@@ -350,20 +187,15 @@
 
   <!-- LOBBY -->
   <div id="screen-lobby" class="screen active">
-
     <div class="lobby-hero">
       <h1>함께 맞추는<br><span>완벽한 박자</span></h1>
       <p>밴드 멤버 모두가 같은 클릭을 듣는 메트로놈</p>
       <p>아영이 파이팅💙</p>
     </div>
-
-    <!-- 닉네임 (공통) -->
     <div class="input-group" style="margin-bottom:1.5rem;">
       <label>닉네임</label>
       <input type="text" id="input-name" placeholder="예: 드러머, 기타리스트" maxlength="20">
     </div>
-
-    <!-- 방 만들기 -->
     <div class="lobby-section">
       <div class="lobby-section-title">방 만들기</div>
       <div class="input-group">
@@ -372,10 +204,7 @@
       </div>
       <button class="btn btn-primary" onclick="createRoom()">방 만들기 (방장)</button>
     </div>
-
     <div class="lobby-divider">또는</div>
-
-    <!-- 기존 방 참가 -->
     <div class="lobby-section">
       <div class="lobby-section-title">기존 방 참가</div>
       <div class="input-group">
@@ -384,12 +213,10 @@
       </div>
       <button class="btn btn-secondary" onclick="joinRoom()">참가하기</button>
     </div>
-
   </div>
 
   <!-- ROOM -->
   <div id="screen-room" class="screen">
-
     <div class="room-header">
       <div>
         <div class="room-name-display" id="display-room-name">밴드방</div>
@@ -403,7 +230,6 @@
       <span id="status-text">대기 중...</span>
     </div>
 
-    <!-- 비트 디스플레이 -->
     <div class="beat-display">
       <div class="beat-circle" id="beat-circle">
         <div class="bpm-big" id="bpm-display">120</div>
@@ -415,8 +241,6 @@
 
     <!-- 방장 전용 -->
     <div id="host-panel">
-
-      <!-- 셋리스트 -->
       <div class="setlist-box">
         <div class="setlist-header">
           <div class="setlist-title">🎵 셋리스트</div>
@@ -430,8 +254,6 @@
           <div class="setlist-empty">곡을 추가해보세요!</div>
         </div>
       </div>
-
-      <!-- BPM -->
       <div class="control-box">
         <div class="ctrl-top">
           <div class="ctrl-label">템포</div>
@@ -445,8 +267,6 @@
           <button class="ctrl-btn" onclick="changeBpm(5)">+5</button>
         </div>
       </div>
-
-      <!-- 박자 -->
       <div class="time-sig-row">
         <div class="ts-label">박자</div>
         <div class="ts-btns">
@@ -456,7 +276,6 @@
           <button class="ts-btn" onclick="setTimeSig(2)" id="ts-2">2/4</button>
         </div>
       </div>
-
       <button class="btn-start" onclick="startMetronome()">▶ 시작 (3초 카운트다운)</button>
       <button class="btn-stop" onclick="stopMetronome()">■ 정지</button>
     </div>
@@ -474,7 +293,7 @@
       </div>
     </div>
 
-    <!-- 딜레이 조절 (모두) -->
+    <!-- 딜레이 (모두) -->
     <div class="control-box">
       <div class="ctrl-top">
         <div class="ctrl-label">내 딜레이 조절</div>
@@ -502,12 +321,11 @@
 
 </div>
 
-<!-- 카운트다운 -->
 <div class="countdown-overlay" id="countdown-overlay">
   <div class="countdown-song" id="countdown-song"></div>
   <div class="countdown-num" id="countdown-num">3</div>
 </div>
-<div class="toast" id="toast">복사됨!</div>
+<div class="toast" id="toast"></div>
 
 <script type="module">
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
@@ -638,8 +456,7 @@ async function doCountdownAndStart(startAt) {
   }, 1000);
 
   await new Promise(r => setTimeout(r, Math.max(0, adjustedStartAt - serverNow() - 30)));
-  const audioNow = ctx.currentTime;
-  S.nextBeatTime = audioNow + Math.max(0, (adjustedStartAt - serverNow()) / 1000);
+  S.nextBeatTime = getAudioCtx().currentTime + Math.max(0, (adjustedStartAt - serverNow()) / 1000);
   S.currentBeat = 0; S.isPlaying = true;
   startScheduler();
 }
@@ -647,6 +464,22 @@ async function doCountdownAndStart(startAt) {
 function stopNow() { S.isPlaying = false; stopScheduler(); setStatus('', '정지됨'); }
 
 function generateCode() { return Math.random().toString(36).slice(2, 8).toUpperCase(); }
+
+function applyHostUI() {
+  S.isHost = true;
+  document.getElementById('display-role-badge').textContent = '방장';
+  document.getElementById('display-role-badge').className = 'role-badge role-host';
+  document.getElementById('host-panel').style.display = 'block';
+  document.getElementById('member-panel').style.display = 'none';
+}
+
+function applyMemberUI() {
+  S.isHost = false;
+  document.getElementById('display-role-badge').textContent = '멤버';
+  document.getElementById('display-role-badge').className = 'role-badge role-member';
+  document.getElementById('host-panel').style.display = 'none';
+  document.getElementById('member-panel').style.display = 'block';
+}
 
 window.createRoom = async function() {
   const name = document.getElementById('input-name').value.trim();
@@ -680,22 +513,21 @@ function enterRoom(code, roomName, isHost) {
   document.getElementById('screen-room').classList.add('active');
   document.getElementById('display-room-name').textContent = roomName;
   document.getElementById('display-room-code').textContent = code;
-  document.getElementById('display-role-badge').textContent = isHost ? '방장' : '멤버';
-  document.getElementById('display-role-badge').className = 'role-badge ' + (isHost ? 'role-host' : 'role-member');
-  document.getElementById('host-panel').style.display = isHost ? 'block' : 'none';
-  document.getElementById('member-panel').style.display = isHost ? 'none' : 'block';
+  isHost ? applyHostUI() : applyMemberUI();
   renderBeatDots(4); setStatus('', '대기 중...');
+
   S.roomRef = ref(db, 'rooms/' + code);
   S.prevStartAt = null; S.prevIsPlaying = false;
 
   S.unsubscribe = onValue(S.roomRef, snap => {
     if (!snap.exists()) {
-    // 방이 삭제됨 → 로비로 이동
-    stopNow();
-    document.getElementById('screen-room').classList.remove('active');
-    document.getElementById('screen-lobby').classList.add('active');
-    return;
-  }
+      // 방 삭제됨 → 로비로
+      stopNow();
+      document.getElementById('screen-room').classList.remove('active');
+      document.getElementById('screen-lobby').classList.add('active');
+      showToast('방장이 방을 종료했어요');
+      return;
+    }
     const d = snap.val();
     if (d.bpm && d.bpm !== S.bpm) {
       S.bpm = d.bpm;
@@ -724,10 +556,26 @@ function enterRoom(code, roomName, isHost) {
       renderSetlist();
     }
     if (d.members) renderMembers(d.members);
-    if (!isHost && d.isPlaying && d.startAt && d.startAt !== S.prevStartAt && !S.isPlaying) { S.prevStartAt = d.startAt; doCountdownAndStart(d.startAt); }
-    if (!isHost && !d.isPlaying && S.prevIsPlaying && S.isPlaying) stopNow();
+
+    // 내가 새 방장이 됐는지 감지
+    if (!S.isHost && d.members && d.members[S.myId] && d.members[S.myId].isHost) {
+      applyHostUI();
+      showToast('방장이 됐어요! 👑');
+    }
+
+    if (!S.isHost && d.isPlaying && d.startAt && d.startAt !== S.prevStartAt && !S.isPlaying) { S.prevStartAt = d.startAt; doCountdownAndStart(d.startAt); }
+    if (!S.isHost && !d.isPlaying && S.prevIsPlaying && S.isPlaying) stopNow();
     S.prevIsPlaying = d.isPlaying;
   });
+}
+
+window.transferHost = async function(newHostId, newHostName) {
+  if (!S.isHost) return;
+  if (!confirm(`${newHostName}님에게 방장을 넘기시겠어요?`)) return;
+  await update(ref(db, `rooms/${S.roomCode}/members/${S.myId}`), { isHost: false });
+  await update(ref(db, `rooms/${S.roomCode}/members/${newHostId}`), { isHost: true });
+  applyMemberUI();
+  showToast('방장을 넘겼어요');
 }
 
 window.addSong = function() {
@@ -796,12 +644,13 @@ window.stopMetronome = async function() {
 window.leaveRoom = async function() {
   if (S.unsubscribe) S.unsubscribe();
   stopNow();
-  if(S.isHost){
-  await remove(ref(db, `rooms/${S.roomCode}`));
-} else {
-  await remove(ref(db, `rooms/${S.roomCode}/members/${S.myId}`));
-}
-  S.roomCode = '';
+  if (S.isHost) {
+    if (!confirm('방을 나가면 방이 삭제되고 모든 멤버가 퇴장돼요. 나가시겠어요?')) return;
+    await remove(ref(db, `rooms/${S.roomCode}`));
+  } else {
+    await remove(ref(db, `rooms/${S.roomCode}/members/${S.myId}`));
+  }
+  S.roomCode = ''; S.isHost = false;
   document.getElementById('screen-room').classList.remove('active');
   document.getElementById('screen-lobby').classList.add('active');
 }
@@ -871,10 +720,13 @@ function renderBeatDots(n) {
 
 function renderMembers(members) {
   const list = document.getElementById('members-list'); list.innerHTML = '';
-  Object.values(members).forEach(m => {
+  Object.entries(members).forEach(([id, m]) => {
     const chip = document.createElement('div');
     chip.className = 'member-chip';
-    chip.innerHTML = `<div class="member-dot"></div>${m.name}${m.isHost ? ' 👑' : ''}`;
+    const transferBtn = (S.isHost && id !== S.myId && !m.isHost)
+      ? `<button class="btn-transfer" onclick="transferHost('${id}','${m.name}')">방장넘기기</button>`
+      : '';
+    chip.innerHTML = `<div class="member-dot"></div>${m.name}${m.isHost ? ' 👑' : ''}${transferBtn}`;
     list.appendChild(chip);
   });
 }
