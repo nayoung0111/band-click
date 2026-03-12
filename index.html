@@ -439,7 +439,7 @@ async function doCountdownAndStart(startAt) {
   songEl.textContent = activeSong ? activeSong.name : '';
   overlay.classList.add('show');
 
-  let count = Math.ceil((startAt - serverNow()) / 1000);
+  let count = 3;
   numEl.textContent = count;
   numEl.style.animation = 'none'; void numEl.offsetHeight; numEl.style.animation = 'countScale 0.85s ease-out';
 
@@ -632,7 +632,7 @@ function renderSetlist() {
 
 window.startMetronome = async function() {
   if (S.isPlaying) return;
-  const startAt = serverNow() + 3200;
+  const startAt = serverNow() + 4000;
   await update(S.roomRef, { isPlaying: true, startAt, bpm: S.bpm, timeSig: S.timeSig });
   doCountdownAndStart(startAt);
 }
