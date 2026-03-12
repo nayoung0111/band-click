@@ -561,6 +561,7 @@ function enterRoom(code, roomName, isHost) {
     if (!S.isHost && d.members && d.members[S.myId] && d.members[S.myId].isHost) {
       applyHostUI();
       showToast('방장이 됐어요! 👑');
+      if (d.members) renderMembers(d.members);
     }
 
     if (!S.isHost && d.isPlaying && d.startAt && d.startAt !== S.prevStartAt && !S.isPlaying) { S.prevStartAt = d.startAt; doCountdownAndStart(d.startAt); }
