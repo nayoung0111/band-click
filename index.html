@@ -3,183 +3,387 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>BAND METRO</title>
-<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Noto+Sans+KR:wght@300;400;700&display=swap" rel="stylesheet">
+<title>CLINK : for bands</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;600;700;900&display=swap" rel="stylesheet">
 <style>
   :root {
-    --bg: #0a0a0a; --surface: #111; --surface2: #1a1a1a;
-    --accent: #ff3b3b; --accent2: #ff8c00;
-    --text: #f0f0f0; --muted: #555;
-    --beat-glow: rgba(255,59,59,0.6);
+    --bg: #ffffff;
+    --bg2: #f7f7fb;
+    --surface: #f2f2f7;
+    --surface2: #e8e8f0;
+    --accent: #3c41cd;
+    --accent-light: rgba(60,65,205,0.08);
+    --accent-mid: rgba(60,65,205,0.18);
+    --accent2: #6b6ef5;
+    --text: #111118;.bpm-big
+    --text2: #444458;
+    --muted: #9999b0;
+    --border: #e2e2ee;
+    --beat-glow: rgba(60,65,205,0.5);
+    --danger: #e53935;
   }
-  * { margin:0; padding:0; box-sizing:border-box; }
+  * { margin:0; padding:0; box-sizing:border-box; -webkit-tap-highlight-color:transparent; }
   body { background:var(--bg); color:var(--text); font-family:'Noto Sans KR',sans-serif; min-height:100vh; overflow-x:hidden; }
-  header { padding:1.5rem 1.5rem 1rem; border-bottom:1px solid #1e1e1e; display:flex; align-items:baseline; gap:0.8rem; }
-  .logo { font-family:'Bebas Neue',cursive; font-size:2.4rem; letter-spacing:0.15em; color:var(--accent); text-shadow:0 0 30px var(--beat-glow); line-height:1; }
-  .logo-sub { font-family:'Bebas Neue',cursive; font-size:1rem; color:var(--muted); letter-spacing:0.3em; }
+
+  /* HEADER */
+  header {
+    padding:1.2rem 1.5rem 1rem;
+    border-bottom:1px solid var(--border);
+    display:flex; align-items:center; gap:0.5rem;
+    background:var(--bg);
+    position:sticky; top:0; z-index:100;
+  }
+  .logo-mark {
+    width:32px; height:32px; background:var(--accent);
+    border-radius:8px; display:flex; align-items:center; justify-content:center;
+  }
+  .logo-mark svg { width:18px; height:18px; fill:white; }
+  .logo-text { font-size:1.15rem; font-weight:900; color:var(--text); letter-spacing:-0.01em; }
+  .logo-text span { color:var(--accent); }
+  .logo-tagline { font-size:0.72rem; color:var(--muted); font-weight:400; margin-left:0.3rem; }
+
   .app { max-width:460px; margin:0 auto; padding:1.5rem; }
   .screen { display:none; }
   .screen.active { display:block; }
 
-  .section-title { font-family:'Bebas Neue',cursive; font-size:1.2rem; letter-spacing:0.2em; color:var(--muted); margin:1.5rem 0 0.8rem; }
-  .input-group { margin-bottom:0.8rem; }
-  .input-group label { display:block; font-size:0.7rem; letter-spacing:0.15em; color:var(--muted); margin-bottom:0.3rem; text-transform:uppercase; }
-  input[type="text"] { width:100%; background:var(--surface); border:1px solid #2a2a2a; color:var(--text); padding:0.85rem 1rem; font-size:1rem; font-family:'Noto Sans KR',sans-serif; outline:none; border-radius:4px; transition:border-color 0.2s; }
-  input[type="text"]:focus { border-color:var(--accent); }
-  .btn { width:100%; padding:1rem; font-family:'Bebas Neue',cursive; font-size:1.2rem; letter-spacing:0.2em; border:none; cursor:pointer; border-radius:4px; transition:all 0.15s; margin-bottom:0.5rem; }
+  /* ========================
+     LOBBY
+  ======================== */
+  .lobby-hero { margin-bottom:2rem; padding-top:0.5rem; }
+  .lobby-hero h1 { font-size:1.6rem; font-weight:900; color:var(--text); line-height:1.3; }
+  .lobby-hero h1 span { color:var(--accent); }
+  .lobby-hero p { font-size:0.85rem; color:var(--muted); margin-top:0.4rem; font-weight:400; }
+
+  .lobby-section { margin-bottom:1.5rem; }
+  .lobby-section-title {
+    font-size:1rem; font-weight:600; color:var(--text);
+    margin-bottom:1rem; padding-bottom:0.5rem;
+    border-bottom:2px solid var(--accent);
+    display:inline-block;
+  }
+
+  .input-group { margin-bottom:0.75rem; }
+  .input-group label { display:block; font-size:0.72rem; font-weight:600; color:var(--text2); margin-bottom:0.35rem; letter-spacing:0.02em; }
+
+  input[type="text"] {
+    width:100%; background:var(--surface);
+    border:1.5px solid var(--border); color:var(--text);
+    padding:0.85rem 1rem; font-size:0.95rem;
+    font-family:'Noto Sans KR',sans-serif; font-weight:400;
+    outline:none; border-radius:10px; transition:all 0.2s;
+  }
+  input[type="text"]:focus { border-color:var(--accent); background:var(--bg); box-shadow:0 0 0 3px var(--accent-light); }
+  input[type="text"]::placeholder { color:var(--muted); }
+
+  .btn {
+    width:100%; padding:0.95rem;
+    font-family:'Noto Sans KR',sans-serif; font-size:0.95rem; font-weight:700;
+    border:none; cursor:pointer; border-radius:10px;
+    transition:all 0.15s; margin-bottom:0.5rem;
+    letter-spacing:0.01em;
+  }
   .btn-primary { background:var(--accent); color:white; }
-  .btn-primary:hover { box-shadow:0 4px 20px rgba(255,59,59,0.4); transform:translateY(-1px); }
-  .btn-secondary { background:var(--surface); color:var(--text); border:1px solid #2a2a2a; }
-  .btn-secondary:hover { border-color:var(--accent); color:var(--accent); }
-  .divider { display:flex; align-items:center; gap:1rem; margin:1.2rem 0; color:var(--muted); font-size:0.75rem; letter-spacing:0.1em; }
-  .divider::before,.divider::after { content:''; flex:1; height:1px; background:#222; }
+  .btn-primary:hover { background:#3035b8; box-shadow:0 4px 16px rgba(60,65,205,0.3); transform:translateY(-1px); }
+  .btn-primary:active { transform:translateY(0); }
+  .btn-secondary {
+    background:var(--bg); color:var(--accent);
+    border:1.5px solid var(--accent);
+  }
+  .btn-secondary:hover { background:var(--accent-light); }
 
-  .room-header { display:flex; align-items:center; justify-content:space-between; margin-bottom:1.2rem; padding-bottom:1rem; border-bottom:1px solid #1e1e1e; }
-  .room-name-display { font-family:'Bebas Neue',cursive; font-size:1.6rem; letter-spacing:0.1em; }
-  .room-code-line { font-size:0.72rem; color:var(--muted); margin-top:0.15rem; }
-  .room-code-line span { color:var(--accent2); font-weight:700; cursor:pointer; letter-spacing:0.15em; }
-  .role-badge { padding:0.25rem 0.7rem; border-radius:3px; font-size:0.65rem; letter-spacing:0.15em; font-weight:700; text-transform:uppercase; }
-  .role-host { background:rgba(255,59,59,0.12); color:var(--accent); border:1px solid rgba(255,59,59,0.25); }
-  .role-member { background:rgba(255,140,0,0.1); color:var(--accent2); border:1px solid rgba(255,140,0,0.2); }
+  .lobby-divider {
+    display:flex; align-items:center; gap:0.8rem;
+    margin:1.8rem 0 1.5rem; color:var(--muted); font-size:0.8rem; font-weight:400;
+  }
+  .lobby-divider::before,.lobby-divider::after { content:''; flex:1; height:1px; background:var(--border); }
 
-  .status-bar { display:flex; align-items:center; gap:0.5rem; padding:0.55rem 0.8rem; background:var(--surface); border:1px solid #1e1e1e; border-radius:5px; margin-bottom:1rem; font-size:0.78rem; color:var(--muted); }
+  /* ========================
+     ROOM SCREEN
+  ======================== */
+  .room-header {
+    display:flex; align-items:center; justify-content:space-between;
+    margin-bottom:1.2rem; padding-bottom:1rem; border-bottom:1px solid var(--border);
+  }
+  .room-name-display { font-size:1.3rem; font-weight:900; color:var(--text); }
+  .room-code-line { font-size:0.72rem; color:var(--muted); margin-top:0.2rem; font-weight:400; }
+  .room-code-line span { color:var(--accent); font-weight:700; cursor:pointer; }
+
+  .role-badge {
+    padding:0.3rem 0.75rem; border-radius:20px;
+    font-size:0.68rem; font-weight:700; letter-spacing:0.03em;
+  }
+  .role-host { background:var(--accent-light); color:var(--accent); border:1px solid var(--accent-mid); }
+  .role-member { background:#f0f0ff; color:var(--accent2); border:1px solid #d0d0fa; }
+
+  /* STATUS */
+  .status-bar {
+    display:flex; align-items:center; gap:0.5rem;
+    padding:0.6rem 0.9rem; background:var(--surface);
+    border:1px solid var(--border); border-radius:8px;
+    margin-bottom:1rem; font-size:0.78rem; color:var(--muted); font-weight:400;
+  }
   .status-dot { width:7px; height:7px; border-radius:50%; background:var(--muted); flex-shrink:0; }
-  .status-dot.running { background:#2ecc71; animation:pulse 1s infinite; }
-  .status-dot.countdown { background:var(--accent2); animation:pulse 0.5s infinite; }
+  .status-dot.running { background:#22c55e; animation:pulse 1s infinite; }
+  .status-dot.countdown { background:var(--accent); animation:pulse 0.5s infinite; }
   @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.3} }
 
+  /* BEAT CIRCLE */
   .beat-display { text-align:center; margin:1.2rem 0; }
-  .beat-circle { width:150px; height:150px; border-radius:50%; border:3px solid #222; margin:0 auto; display:flex; align-items:center; justify-content:center; flex-direction:column; background:var(--surface); transition:all 0.05s; }
-  .beat-circle.beat-on { border-color:var(--accent); box-shadow:0 0 0 8px rgba(255,59,59,0.08),0 0 40px rgba(255,59,59,0.25); background:#1a0808; }
-  .beat-circle.downbeat.beat-on { border-color:#fff; box-shadow:0 0 0 8px rgba(255,255,255,0.06),0 0 50px rgba(255,59,59,0.4); }
-  .bpm-big { font-family:'Bebas Neue',cursive; font-size:3.2rem; line-height:1; }
-  .bpm-label { font-size:0.65rem; letter-spacing:0.25em; color:var(--muted); text-transform:uppercase; }
-  .current-song-name { font-size:0.75rem; color:var(--accent2); margin-top:0.2rem; max-width:130px; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; text-align:center; }
+  .beat-circle {
+    width:155px; height:155px; border-radius:50%;
+    border:3px solid var(--border); margin:0 auto;
+    display:flex; align-items:center; justify-content:center;
+    flex-direction:column; background:var(--surface); transition:all 0.05s;
+  }
+  .beat-circle.beat-on {
+    border-color:var(--accent);
+    box-shadow:0 0 0 8px var(--accent-light), 0 0 30px rgba(60,65,205,0.2);
+    background:#f0f0ff;
+  }
+  .beat-circle.downbeat.beat-on {
+    border-color:var(--accent);
+    box-shadow:0 0 0 10px var(--accent-mid), 0 0 40px rgba(60,65,205,0.3);
+    background:#e8e8ff;
+  }
+  .bpm-big { font-size:3.2rem; font-weight:700; line-height:1; color:var(--text); }
+  .bpm-label { font-size:0.65rem; font-weight:600; color:var(--muted); text-transform:uppercase; letter-spacing:0.15em; }
+  .current-song-name { font-size:0.72rem; color:var(--accent); margin-top:0.25rem; max-width:130px; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; font-weight:600; }
   .beat-dots { display:flex; justify-content:center; gap:0.5rem; margin-top:0.8rem; }
-  .beat-dot { width:11px; height:11px; border-radius:50%; background:#222; border:1px solid #333; transition:all 0.05s; }
+  .beat-dot { width:10px; height:10px; border-radius:50%; background:var(--surface2); border:1.5px solid var(--border); transition:all 0.05s; }
   .beat-dot.active { background:var(--accent); box-shadow:0 0 8px var(--beat-glow); border-color:var(--accent); }
-  .beat-dot.downbeat.active { background:white; box-shadow:0 0 10px rgba(255,255,255,0.5); border-color:white; }
+  .beat-dot.downbeat.active { background:var(--accent); box-shadow:0 0 12px var(--beat-glow); }
 
-  .control-box { background:var(--surface); border:1px solid #1e1e1e; border-radius:8px; padding:1rem; margin-bottom:0.8rem; }
+  /* CONTROL BOX */
+  .control-box {
+    background:var(--surface); border:1px solid var(--border);
+    border-radius:12px; padding:1rem; margin-bottom:0.8rem;
+  }
   .ctrl-top { display:flex; justify-content:space-between; align-items:center; margin-bottom:0.7rem; }
-  .ctrl-label { font-size:0.65rem; letter-spacing:0.15em; color:var(--muted); text-transform:uppercase; }
-  .ctrl-readout { font-family:'Bebas Neue',cursive; font-size:1rem; letter-spacing:0.1em; }
+  .ctrl-label { font-size:0.7rem; font-weight:600; color:var(--muted); text-transform:uppercase; letter-spacing:0.08em; }
+  .ctrl-readout { font-size:0.95rem; font-weight:700; }
   .ctrl-readout.accent { color:var(--accent); }
-  .ctrl-readout.blue { color:#4fc3f7; }
-  .ctrl-readout.orange { color:var(--accent2); }
+  .ctrl-readout.blue { color:#2196f3; }
+  .ctrl-readout.orange { color:#f57c00; }
   .ctrl-readout.muted { color:var(--muted); }
-  .btn-row { display:flex; align-items:center; gap:0.6rem; }
-  .ctrl-btn { width:40px; height:40px; border-radius:4px; border:1px solid #2a2a2a; background:var(--surface2); color:var(--text); font-size:0.9rem; cursor:pointer; display:flex; align-items:center; justify-content:center; transition:all 0.15s; flex-shrink:0; font-family:'Noto Sans KR',sans-serif; }
-  .ctrl-btn:hover { border-color:var(--accent); color:var(--accent); }
-  input[type="range"] { flex:1; -webkit-appearance:none; height:3px; background:#2a2a2a; border-radius:2px; outline:none; }
-  input[type="range"]::-webkit-slider-thumb { -webkit-appearance:none; width:16px; height:16px; border-radius:50%; background:var(--accent); cursor:pointer; box-shadow:0 0 6px var(--beat-glow); }
+  .btn-row { display:flex; align-items:center; gap:0.5rem; }
+  .ctrl-btn {
+    width:38px; height:38px; border-radius:8px;
+    border:1.5px solid var(--border); background:var(--bg);
+    color:var(--text2); font-size:0.85rem; font-weight:600; cursor:pointer;
+    display:flex; align-items:center; justify-content:center;
+    transition:all 0.15s; flex-shrink:0;
+    font-family:'Noto Sans KR',sans-serif;
+  }
+  .ctrl-btn:hover { border-color:var(--accent); color:var(--accent); background:var(--accent-light); }
 
-  .time-sig-row { background:var(--surface); border:1px solid #1e1e1e; border-radius:8px; padding:0.8rem 1rem; margin-bottom:0.8rem; display:flex; align-items:center; gap:0.8rem; }
-  .ts-label { font-size:0.65rem; letter-spacing:0.15em; color:var(--muted); text-transform:uppercase; white-space:nowrap; }
+  input[type="range"] { flex:1; -webkit-appearance:none; height:4px; background:var(--surface2); border-radius:4px; outline:none; }
+  input[type="range"]::-webkit-slider-thumb { -webkit-appearance:none; width:18px; height:18px; border-radius:50%; background:var(--accent); cursor:pointer; box-shadow:0 2px 6px var(--beat-glow); }
+
+  /* TIME SIG */
+  .time-sig-row {
+    background:var(--surface); border:1px solid var(--border);
+    border-radius:12px; padding:0.8rem 1rem; margin-bottom:0.8rem;
+    display:flex; align-items:center; gap:0.8rem;
+  }
+  .ts-label { font-size:0.7rem; font-weight:600; color:var(--muted); text-transform:uppercase; letter-spacing:0.08em; white-space:nowrap; }
   .ts-btns { display:flex; gap:0.4rem; }
-  .ts-btn { padding:0.3rem 0.7rem; background:var(--surface2); border:1px solid #2a2a2a; color:var(--muted); font-size:0.75rem; cursor:pointer; border-radius:3px; transition:all 0.15s; font-family:'Noto Sans KR',sans-serif; }
-  .ts-btn.active { background:rgba(255,59,59,0.12); border-color:var(--accent); color:var(--accent); }
+  .ts-btn {
+    padding:0.3rem 0.75rem; background:var(--bg);
+    border:1.5px solid var(--border); color:var(--muted);
+    font-size:0.78rem; font-weight:600; cursor:pointer;
+    border-radius:6px; transition:all 0.15s;
+    font-family:'Noto Sans KR',sans-serif;
+  }
+  .ts-btn.active { background:var(--accent-light); border-color:var(--accent); color:var(--accent); }
 
-  .btn-start { width:100%; padding:1.1rem; font-family:'Bebas Neue',cursive; font-size:1.3rem; letter-spacing:0.2em; border:none; cursor:pointer; border-radius:6px; background:var(--accent); color:white; transition:all 0.15s; margin-bottom:0.5rem; }
-  .btn-start:hover { box-shadow:0 4px 24px rgba(255,59,59,0.4); transform:translateY(-1px); }
-  .btn-stop { width:100%; padding:0.8rem; font-family:'Bebas Neue',cursive; font-size:1.1rem; letter-spacing:0.15em; border:1px solid #2a2a2a; background:var(--surface); color:var(--text); cursor:pointer; border-radius:6px; transition:all 0.15s; margin-bottom:0.8rem; }
-  .btn-stop:hover { border-color:#555; }
+  /* START / STOP */
+  .btn-start {
+    width:100%; padding:1.1rem;
+    font-family:'Noto Sans KR',sans-serif; font-size:1rem; font-weight:700;
+    border:none; cursor:pointer; border-radius:12px;
+    background:var(--accent); color:white;
+    transition:all 0.15s; margin-bottom:0.5rem;
+  }
+  .btn-start:hover { background:#3035b8; box-shadow:0 4px 20px rgba(60,65,205,0.35); transform:translateY(-1px); }
+  .btn-stop {
+    width:100%; padding:0.85rem;
+    font-family:'Noto Sans KR',sans-serif; font-size:0.95rem; font-weight:600;
+    border:1.5px solid var(--border); background:var(--bg); color:var(--text2);
+    cursor:pointer; border-radius:12px; transition:all 0.15s; margin-bottom:0.8rem;
+  }
+  .btn-stop:hover { border-color:var(--danger); color:var(--danger); }
 
   /* ========================
      SETLIST
   ======================== */
-  .setlist-box { background:var(--surface); border:1px solid #1e1e1e; border-radius:8px; padding:1rem; margin-bottom:0.8rem; }
+  .setlist-box {
+    background:var(--surface); border:1px solid var(--border);
+    border-radius:12px; padding:1rem; margin-bottom:0.8rem;
+  }
   .setlist-header { display:flex; justify-content:space-between; align-items:center; margin-bottom:0.8rem; }
-  .setlist-title { font-size:0.65rem; letter-spacing:0.15em; color:var(--muted); text-transform:uppercase; }
+  .setlist-title { font-size:0.7rem; font-weight:700; color:var(--muted); text-transform:uppercase; letter-spacing:0.08em; }
 
-  /* 곡 추가 폼 (방장만) */
   .setlist-add-form { display:flex; gap:0.5rem; margin-bottom:0.8rem; }
-  .setlist-add-form input[type="text"] { flex:1; padding:0.6rem 0.8rem; font-size:0.85rem; }
-  .setlist-add-form input.bpm-input { width:80px; flex:none; }
-  .btn-add-song { padding:0.6rem 0.9rem; background:var(--accent); color:white; border:none; border-radius:4px; cursor:pointer; font-size:1.1rem; font-family:'Bebas Neue',cursive; letter-spacing:0.05em; transition:all 0.15s; white-space:nowrap; }
-  .btn-add-song:hover { box-shadow:0 2px 10px rgba(255,59,59,0.4); }
+  .setlist-add-form input[type="text"] { flex:1; padding:0.6rem 0.8rem; font-size:0.85rem; border-radius:8px; }
+  .setlist-add-form input.bpm-input { width:76px; flex:none; }
+  .btn-add-song {
+    padding:0.6rem 0.9rem; background:var(--accent); color:white;
+    border:none; border-radius:8px; cursor:pointer;
+    font-size:0.85rem; font-weight:700;
+    font-family:'Noto Sans KR',sans-serif;
+    transition:all 0.15s; white-space:nowrap;
+  }
+  .btn-add-song:hover { background:#3035b8; }
 
-  /* 곡 목록 */
   .setlist-list { display:flex; flex-direction:column; gap:0.4rem; }
-  .setlist-empty { text-align:center; color:var(--muted); font-size:0.8rem; padding:1rem 0; }
+  .setlist-empty { text-align:center; color:var(--muted); font-size:0.8rem; padding:1rem 0; font-weight:400; }
 
   .song-item {
     display:flex; align-items:center; gap:0.6rem;
-    background:var(--surface2); border:1px solid #222;
-    border-radius:6px; padding:0.6rem 0.8rem;
+    background:var(--bg); border:1.5px solid var(--border);
+    border-radius:8px; padding:0.65rem 0.8rem;
     cursor:pointer; transition:all 0.15s;
   }
-  .song-item:hover { border-color:var(--accent); background:#1a0a0a; }
-  .song-item.active { border-color:var(--accent); background:#1a0808; box-shadow:0 0 0 1px rgba(255,59,59,0.2); }
+  .song-item:hover { border-color:var(--accent); background:var(--accent-light); }
+  .song-item.active { border-color:var(--accent); background:var(--accent-light); box-shadow:0 0 0 1px var(--accent-mid); }
 
-  .song-num { font-family:'Bebas Neue',cursive; font-size:0.9rem; color:var(--muted); width:18px; flex-shrink:0; }
+  .song-num { font-size:0.82rem; font-weight:700; color:var(--muted); width:18px; flex-shrink:0; }
   .song-info { flex:1; min-width:0; }
-  .song-name { font-size:0.88rem; font-weight:700; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
-  .song-bpm { font-family:'Bebas Neue',cursive; font-size:0.8rem; color:var(--accent2); letter-spacing:0.05em; margin-top:0.1rem; }
-  .song-active-badge { font-size:0.6rem; color:var(--accent); letter-spacing:0.1em; background:rgba(255,59,59,0.12); border:1px solid rgba(255,59,59,0.2); padding:0.15rem 0.4rem; border-radius:2px; white-space:nowrap; }
-  .btn-del-song { background:none; border:none; color:var(--muted); cursor:pointer; font-size:1rem; padding:0.2rem 0.4rem; border-radius:3px; transition:all 0.15s; flex-shrink:0; }
-  .btn-del-song:hover { color:var(--accent); background:rgba(255,59,59,0.1); }
+  .song-name { font-size:0.88rem; font-weight:700; color:var(--text); white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+  .song-bpm { font-size:0.78rem; font-weight:600; color:var(--accent2); margin-top:0.1rem; }
+  .song-active-badge {
+    font-size:0.62rem; font-weight:700; color:var(--accent);
+    background:var(--accent-light); border:1px solid var(--accent-mid);
+    padding:0.15rem 0.45rem; border-radius:4px; white-space:nowrap;
+  }
+  .btn-del-song {
+    background:none; border:none; color:var(--muted);
+    cursor:pointer; font-size:0.9rem; padding:0.25rem 0.4rem;
+    border-radius:4px; transition:all 0.15s; flex-shrink:0;
+  }
+  .btn-del-song:hover { color:var(--danger); background:#fff0f0; }
 
-  /* 멤버용 현재 곡 표시 */
-  .current-song-display { background:var(--surface); border:1px solid #1e1e1e; border-radius:8px; padding:0.8rem 1rem; margin-bottom:0.8rem; display:none; }
+  /* 멤버용 현재 곡 */
+  .current-song-display {
+    background:var(--accent-light); border:1.5px solid var(--accent-mid);
+    border-radius:12px; padding:0.9rem 1rem; margin-bottom:0.8rem; display:none;
+  }
   .current-song-display.visible { display:block; }
-  .csd-label { font-size:0.65rem; letter-spacing:0.15em; color:var(--muted); text-transform:uppercase; margin-bottom:0.3rem; }
+  .csd-label { font-size:0.68rem; font-weight:600; color:var(--accent); text-transform:uppercase; letter-spacing:0.08em; margin-bottom:0.3rem; }
   .csd-name { font-size:1rem; font-weight:700; color:var(--text); }
-  .csd-bpm { font-family:'Bebas Neue',cursive; font-size:0.9rem; color:var(--accent2); margin-top:0.1rem; }
+  .csd-bpm { font-size:0.85rem; font-weight:600; color:var(--accent2); margin-top:0.15rem; }
 
-  .offset-desc { font-size:0.68rem; color:var(--muted); margin-top:0.5rem; text-align:center; line-height:1.5; }
-  .sync-status { font-size:0.68rem; color:var(--muted); text-align:center; padding:0.3rem; margin-bottom:0.6rem; }
-  .sync-status.good { color:#2ecc71; }
-  .sync-status.measuring { color:var(--accent2); }
+  .offset-desc { font-size:0.68rem; color:var(--muted); margin-top:0.5rem; text-align:center; line-height:1.5; font-weight:400; }
 
+  /* SYNC STATUS */
+  .sync-status { font-size:0.68rem; font-weight:500; color:var(--muted); text-align:center; padding:0.3rem; margin-bottom:0.6rem; }
+  .sync-status.good { color:#22c55e; }
+  .sync-status.measuring { color:var(--accent); }
+
+  /* MEMBERS */
   .members-section { margin-bottom:0.8rem; }
-  .members-label { font-size:0.65rem; letter-spacing:0.18em; color:var(--muted); text-transform:uppercase; margin-bottom:0.5rem; }
+  .members-label { font-size:0.68rem; font-weight:700; color:var(--muted); text-transform:uppercase; letter-spacing:0.08em; margin-bottom:0.5rem; }
   .members-list { display:flex; flex-wrap:wrap; gap:0.4rem; }
-  .member-chip { display:flex; align-items:center; gap:0.35rem; background:var(--surface); border:1px solid #1e1e1e; padding:0.25rem 0.65rem; border-radius:20px; font-size:0.78rem; }
-  .member-dot { width:6px; height:6px; border-radius:50%; background:#2ecc71; }
+  .member-chip {
+    display:flex; align-items:center; gap:0.35rem;
+    background:var(--surface); border:1px solid var(--border);
+    padding:0.28rem 0.7rem; border-radius:20px; font-size:0.78rem; font-weight:500;
+  }
+  .member-dot { width:6px; height:6px; border-radius:50%; background:#22c55e; }
 
-  .member-notice { text-align:center; padding:1.2rem 1rem; background:var(--surface); border:1px solid #1e1e1e; border-radius:8px; margin-bottom:0.8rem; color:var(--muted); font-size:0.85rem; line-height:1.8; }
-  .notice-icon { font-size:2rem; margin-bottom:0.4rem; }
+  /* MEMBER NOTICE */
+  .member-notice {
+    text-align:center; padding:1.3rem 1rem;
+    background:var(--surface); border:1px solid var(--border);
+    border-radius:12px; margin-bottom:0.8rem;
+    color:var(--muted); font-size:0.85rem; line-height:1.8; font-weight:400;
+  }
+  .notice-icon { font-size:1.8rem; margin-bottom:0.4rem; }
 
-  .countdown-overlay { position:fixed; inset:0; background:rgba(0,0,0,0.93); display:none; align-items:center; justify-content:center; z-index:999; flex-direction:column; gap:0.5rem; }
+  /* COUNTDOWN */
+  .countdown-overlay {
+    position:fixed; inset:0; background:rgba(255,255,255,0.97);
+    display:none; align-items:center; justify-content:center;
+    z-index:999; flex-direction:column; gap:0.5rem;
+  }
   .countdown-overlay.show { display:flex; }
-  .countdown-song { font-family:'Bebas Neue',cursive; font-size:1.2rem; color:var(--accent2); letter-spacing:0.2em; }
-  .countdown-num { font-family:'Bebas Neue',cursive; font-size:11rem; color:var(--accent); text-shadow:0 0 60px var(--beat-glow); animation:countScale 0.85s ease-out; line-height:1; }
-  @keyframes countScale { 0%{transform:scale(1.5);opacity:0} 20%{opacity:1} 80%{transform:scale(1);opacity:1} 100%{transform:scale(0.8);opacity:0} }
+  .countdown-song { font-size:1rem; font-weight:700; color:var(--accent); letter-spacing:0.05em; }
+  .countdown-num {
+    font-size:10rem; font-weight:900; color:var(--accent);
+    text-shadow:0 0 40px var(--beat-glow);
+    animation:countScale 0.85s ease-out; line-height:1;
+  }
+  @keyframes countScale { 0%{transform:scale(1.4);opacity:0} 20%{opacity:1} 80%{transform:scale(1);opacity:1} 100%{transform:scale(0.85);opacity:0} }
 
-  .btn-leave { width:100%; background:none; border:1px solid #1e1e1e; color:var(--muted); padding:0.5rem; font-size:0.75rem; letter-spacing:0.08em; cursor:pointer; border-radius:4px; transition:all 0.15s; font-family:'Noto Sans KR',sans-serif; }
-  .btn-leave:hover { border-color:#444; color:var(--text); }
-  .toast { position:fixed; bottom:2rem; left:50%; transform:translateX(-50%) translateY(20px); background:#222; color:var(--text); padding:0.5rem 1.2rem; border-radius:20px; font-size:0.78rem; opacity:0; transition:all 0.3s; pointer-events:none; z-index:2000; border:1px solid #333; }
+  .btn-leave {
+    width:100%; background:none; border:1px solid var(--border);
+    color:var(--muted); padding:0.55rem; font-size:0.78rem; font-weight:500;
+    cursor:pointer; border-radius:8px; transition:all 0.15s;
+    font-family:'Noto Sans KR',sans-serif;
+  }
+  .btn-leave:hover { border-color:var(--danger); color:var(--danger); }
+
+  .toast {
+    position:fixed; bottom:2rem; left:50%;
+    transform:translateX(-50%) translateY(20px);
+    background:var(--text); color:white;
+    padding:0.55rem 1.3rem; border-radius:20px;
+    font-size:0.78rem; font-weight:500;
+    opacity:0; transition:all 0.3s; pointer-events:none; z-index:2000;
+  }
   .toast.show { opacity:1; transform:translateX(-50%) translateY(0); }
 </style>
 </head>
 <body>
 
+<!-- HEADER -->
 <header>
-  <div class="logo">BAND METRO</div>
-  <div class="logo-sub">밴드 싱크 메트로놈</div>
+  <div class="logo-mark">
+    <svg viewBox="0 0 24 24"><path d="M12 3a9 9 0 100 18A9 9 0 0012 3zm0 2a7 7 0 110 14A7 7 0 0112 5zm-.5 3v5.25l4.5 2.67-.75 1.23L10 14V8h1.5z"/></svg>
+  </div>
+  <div>
+    <div class="logo-text">뉴웨이브<span>똥먹자</span></div>
+  </div>
 </header>
 
 <div class="app">
 
   <!-- LOBBY -->
   <div id="screen-lobby" class="screen active">
-    <div class="section-title">방 만들기</div>
-    <div class="input-group">
-      <label>내 이름 (악기)</label>
+
+    <div class="lobby-hero">
+      <h1>함께 맞추는<br><span>완벽한 박자</span></h1>
+      <p>밴드 멤버 모두가 같은 클릭을 듣는 메트로놈</p>
+    </div>
+
+    <!-- 닉네임 (공통) -->
+    <div class="input-group" style="margin-bottom:1.5rem;">
+      <label>닉네임</label>
       <input type="text" id="input-name" placeholder="예: 드러머, 기타리스트" maxlength="20">
     </div>
-    <div class="input-group">
-      <label>방 이름</label>
-      <input type="text" id="input-room-name" placeholder="예: 홍대 인디밴드" maxlength="20">
+
+    <!-- 방 만들기 -->
+    <div class="lobby-section">
+      <div class="lobby-section-title">방 만들기</div>
+      <div class="input-group">
+        <label>방 이름</label>
+        <input type="text" id="input-room-name" placeholder="예: 홍대 인디밴드" maxlength="20">
+      </div>
+      <button class="btn btn-primary" onclick="createRoom()">방 만들기 (방장)</button>
     </div>
-    <button class="btn btn-primary" onclick="createRoom()">방 만들기 (방장)</button>
-    <div class="divider">또는 기존 방 참가</div>
-    <div class="input-group">
-      <label>방 코드</label>
-      <input type="text" id="input-room-code" placeholder="예: ABC123" maxlength="6" style="text-transform:uppercase;letter-spacing:0.2em">
+
+    <div class="lobby-divider">또는</div>
+
+    <!-- 기존 방 참가 -->
+    <div class="lobby-section">
+      <div class="lobby-section-title">기존 방 참가</div>
+      <div class="input-group">
+        <label>방 코드</label>
+        <input type="text" id="input-room-code" placeholder="예: ABC123" maxlength="6" style="text-transform:uppercase;letter-spacing:0.2em">
+      </div>
+      <button class="btn btn-secondary" onclick="joinRoom()">참가하기</button>
     </div>
-    <button class="btn btn-secondary" onclick="joinRoom()">참가하기</button>
+
   </div>
 
   <!-- ROOM -->
@@ -218,7 +422,7 @@
         </div>
         <div class="setlist-add-form">
           <input type="text" id="input-song-name" placeholder="곡 이름" maxlength="30">
-          <input type="text" id="input-song-bpm" placeholder="BPM" maxlength="3" class="bpm-input" pattern="[0-9]*" inputmode="numeric">
+          <input type="text" id="input-song-bpm" placeholder="BPM" maxlength="3" class="bpm-input" inputmode="numeric">
           <button class="btn-add-song" onclick="addSong()">+ 추가</button>
         </div>
         <div class="setlist-list" id="setlist-list">
@@ -262,7 +466,6 @@
         <div class="notice-icon">🎧</div>
         이어폰 꽂고 기다리세요!<br>방장이 시작하면 자동으로 동기화돼요.
       </div>
-      <!-- 멤버용 현재 곡 표시 -->
       <div class="current-song-display" id="current-song-display">
         <div class="csd-label">현재 곡</div>
         <div class="csd-name" id="csd-name">—</div>
@@ -330,26 +533,18 @@ const S = {
   audioCtx: null, nextBeatTime: 0,
   schedulerTimer: null, beatFlashTimer: null,
   roomRef: null, unsubscribe: null,
-  serverTimeOffset: 0,
-  userOffsetMs: 0,
+  serverTimeOffset: 0, userOffsetMs: 0,
   prevStartAt: null, prevIsPlaying: false,
-  setlist: [],           // [{ id, name, bpm }]
-  activeSongId: null,    // 현재 선택된 곡 id
+  setlist: [], activeSongId: null,
 };
 
-// ============================
-// 서버 시간 5번 측정
-// ============================
 async function syncServerTime() {
   const syncEl = document.getElementById('sync-status');
   if (syncEl) { syncEl.textContent = '⏱ 서버 시간 측정 중...'; syncEl.className = 'sync-status measuring'; }
   const samples = [];
   for (let i = 0; i < 5; i++) {
     await new Promise(resolve => {
-      onValue(ref(db, '.info/serverTimeOffset'), snap => {
-        samples.push(snap.val() || 0);
-        resolve();
-      }, { onlyOnce: true });
+      onValue(ref(db, '.info/serverTimeOffset'), snap => { samples.push(snap.val() || 0); resolve(); }, { onlyOnce: true });
     });
     if (i < 4) await new Promise(r => setTimeout(r, 150));
   }
@@ -361,9 +556,6 @@ async function syncServerTime() {
 
 function serverNow() { return Date.now() + S.serverTimeOffset; }
 
-// ============================
-// 오디오
-// ============================
 function getAudioCtx() {
   if (!S.audioCtx) S.audioCtx = new (window.AudioContext || window.webkitAudioContext)();
   return S.audioCtx;
@@ -414,22 +606,16 @@ function stopScheduler() {
   document.querySelectorAll('.beat-dot').forEach(d => d.classList.remove('active','downbeat'));
 }
 
-// ============================
-// 카운트다운 + 시작
-// ============================
 async function doCountdownAndStart(startAt) {
   const ctx = getAudioCtx();
   await ctx.resume();
   const adjustedStartAt = startAt - S.userOffsetMs;
-  const msUntilStart = adjustedStartAt - serverNow();
-  if (msUntilStart < -500) return;
+  if (adjustedStartAt - serverNow() < -500) return;
 
   setStatus('countdown', '카운트다운...');
   const overlay = document.getElementById('countdown-overlay');
   const numEl = document.getElementById('countdown-num');
   const songEl = document.getElementById('countdown-song');
-
-  // 카운트다운에 현재 곡 이름 표시
   const activeSong = S.setlist.find(s => s.id === S.activeSongId);
   songEl.textContent = activeSong ? activeSong.name : '';
   overlay.classList.add('show');
@@ -443,121 +629,33 @@ async function doCountdownAndStart(startAt) {
     if (count <= 0) {
       clearInterval(tick);
       overlay.classList.remove('show');
-      setStatus('running', activeSong ? `▶ ${activeSong.name}` : '재생 중 🎵');
+      setStatus('running', activeSong ? `▶ ${activeSong.name}` : '재생 중');
     } else {
       numEl.textContent = count;
       numEl.style.animation = 'none'; void numEl.offsetHeight; numEl.style.animation = 'countScale 0.85s ease-out';
     }
   }, 1000);
 
-  const waitMs = adjustedStartAt - serverNow() - 30;
-  await new Promise(r => setTimeout(r, Math.max(0, waitMs)));
+  await new Promise(r => setTimeout(r, Math.max(0, adjustedStartAt - serverNow() - 30)));
   const audioNow = ctx.currentTime;
-  const remainSec = Math.max(0, (adjustedStartAt - serverNow()) / 1000);
-  S.nextBeatTime = audioNow + remainSec;
-  S.currentBeat = 0;
-  S.isPlaying = true;
+  S.nextBeatTime = audioNow + Math.max(0, (adjustedStartAt - serverNow()) / 1000);
+  S.currentBeat = 0; S.isPlaying = true;
   startScheduler();
 }
 
-function stopNow() {
-  S.isPlaying = false;
-  stopScheduler();
-  setStatus('', '정지됨');
-}
+function stopNow() { S.isPlaying = false; stopScheduler(); setStatus('', '정지됨'); }
 
-// ============================
-// 셋리스트
-// ============================
-window.addSong = function() {
-  const nameEl = document.getElementById('input-song-name');
-  const bpmEl = document.getElementById('input-song-bpm');
-  const name = nameEl.value.trim();
-  const bpm = parseInt(bpmEl.value);
-  if (!name) { alert('곡 이름을 입력하세요!'); return; }
-  if (!bpm || bpm < 40 || bpm > 240) { alert('BPM을 40~240 사이로 입력하세요!'); return; }
-
-  const song = { id: Date.now().toString(), name, bpm };
-  S.setlist.push(song);
-  nameEl.value = ''; bpmEl.value = '';
-
-  // Firebase에 저장
-  if (S.roomRef) update(S.roomRef, { setlist: S.setlist });
-  renderSetlist();
-}
-
-window.deleteSong = function(id) {
-  S.setlist = S.setlist.filter(s => s.id !== id);
-  if (S.activeSongId === id) {
-    S.activeSongId = null;
-    document.getElementById('current-song-name').textContent = '';
-  }
-  if (S.roomRef) update(S.roomRef, { setlist: S.setlist, activeSongId: S.activeSongId });
-  renderSetlist();
-}
-
-window.selectSong = function(id) {
-  const song = S.setlist.find(s => s.id === id);
-  if (!song) return;
-
-  S.activeSongId = id;
-  S.bpm = song.bpm;
-
-  // BPM 업데이트
-  document.getElementById('bpm-display').textContent = song.bpm;
-  document.getElementById('bpm-readout').textContent = song.bpm + ' BPM';
-  document.getElementById('bpm-slider').value = song.bpm;
-  document.getElementById('current-song-name').textContent = song.name;
-
-  // Firebase 동기화
-  if (S.roomRef) update(S.roomRef, { bpm: song.bpm, activeSongId: id });
-
-  renderSetlist();
-  showToast(`${song.name} — ${song.bpm} BPM`);
-}
-
-function renderSetlist() {
-  const list = document.getElementById('setlist-list');
-  if (!list) return;
-  if (S.setlist.length === 0) {
-    list.innerHTML = '<div class="setlist-empty">곡을 추가해보세요!</div>';
-    return;
-  }
-  list.innerHTML = S.setlist.map((song, i) => `
-    <div class="song-item ${song.id === S.activeSongId ? 'active' : ''}" onclick="selectSong('${song.id}')">
-      <div class="song-num">${i + 1}</div>
-      <div class="song-info">
-        <div class="song-name">${song.name}</div>
-        <div class="song-bpm">${song.bpm} BPM</div>
-      </div>
-      ${song.id === S.activeSongId ? '<div class="song-active-badge">선택됨</div>' : ''}
-      <button class="btn-del-song" onclick="event.stopPropagation(); deleteSong('${song.id}')">✕</button>
-    </div>
-  `).join('');
-}
-
-// ============================
-// 방 생성 / 참가
-// ============================
 function generateCode() { return Math.random().toString(36).slice(2, 8).toUpperCase(); }
 
 window.createRoom = async function() {
   const name = document.getElementById('input-name').value.trim();
   const roomName = document.getElementById('input-room-name').value.trim();
-  if (!name) { alert('이름을 입력하세요!'); return; }
+  if (!name) { alert('닉네임을 입력하세요!'); return; }
   if (!roomName) { alert('방 이름을 입력하세요!'); return; }
-
   const code = generateCode();
   S.myName = name; S.isHost = true; S.roomCode = code;
-
-  await set(ref(db, 'rooms/' + code), {
-    name: roomName, bpm: 120, timeSig: 4,
-    isPlaying: false, startAt: null,
-    setlist: [], activeSongId: null,
-    createdAt: serverTimestamp(),
-  });
+  await set(ref(db, 'rooms/' + code), { name: roomName, bpm: 120, timeSig: 4, isPlaying: false, startAt: null, setlist: [], activeSongId: null, createdAt: serverTimestamp() });
   await set(ref(db, `rooms/${code}/members/${S.myId}`), { name, isHost: true, joinedAt: serverTimestamp() });
-
   enterRoom(code, roomName, true);
   syncServerTime();
 }
@@ -565,17 +663,13 @@ window.createRoom = async function() {
 window.joinRoom = async function() {
   const name = document.getElementById('input-name').value.trim();
   const code = document.getElementById('input-room-code').value.trim().toUpperCase();
-  if (!name) { alert('이름을 입력하세요!'); return; }
+  if (!name) { alert('닉네임을 입력하세요!'); return; }
   if (!code) { alert('방 코드를 입력하세요!'); return; }
-
   const snap = await get(ref(db, 'rooms/' + code));
   if (!snap.exists()) { alert('방을 찾을 수 없어요!'); return; }
-
   const data = snap.val();
   S.myName = name; S.isHost = false; S.roomCode = code;
-
   await set(ref(db, `rooms/${code}/members/${S.myId}`), { name, isHost: false, joinedAt: serverTimestamp() });
-
   enterRoom(code, data.name, false);
   syncServerTime();
 }
@@ -589,75 +683,95 @@ function enterRoom(code, roomName, isHost) {
   document.getElementById('display-role-badge').className = 'role-badge ' + (isHost ? 'role-host' : 'role-member');
   document.getElementById('host-panel').style.display = isHost ? 'block' : 'none';
   document.getElementById('member-panel').style.display = isHost ? 'none' : 'block';
-  renderBeatDots(4);
-  setStatus('', '대기 중...');
-
+  renderBeatDots(4); setStatus('', '대기 중...');
   S.roomRef = ref(db, 'rooms/' + code);
   S.prevStartAt = null; S.prevIsPlaying = false;
 
   S.unsubscribe = onValue(S.roomRef, snap => {
     if (!snap.exists()) return;
     const d = snap.val();
-
-    // BPM
     if (d.bpm && d.bpm !== S.bpm) {
       S.bpm = d.bpm;
       document.getElementById('bpm-display').textContent = d.bpm;
       document.getElementById('bpm-readout').textContent = d.bpm + ' BPM';
       const sl = document.getElementById('bpm-slider'); if (sl) sl.value = d.bpm;
     }
-
-    // 박자
     if (d.timeSig && d.timeSig !== S.timeSig) {
-      S.timeSig = d.timeSig;
-      renderBeatDots(d.timeSig);
+      S.timeSig = d.timeSig; renderBeatDots(d.timeSig);
       document.querySelectorAll('.ts-btn').forEach(b => b.classList.remove('active'));
       const btn = document.getElementById('ts-' + d.timeSig); if (btn) btn.classList.add('active');
     }
-
-    // 셋리스트 동기화
     if (d.setlist !== undefined) {
       S.setlist = Array.isArray(d.setlist) ? d.setlist : Object.values(d.setlist || {});
-      if (!isHost) renderMemberSetlist(d.setlist);
-      else renderSetlist();
+      renderSetlist();
     }
-
-    // 선택된 곡
     if (d.activeSongId !== undefined && d.activeSongId !== S.activeSongId) {
       S.activeSongId = d.activeSongId;
       const song = S.setlist.find(s => s.id === d.activeSongId);
       document.getElementById('current-song-name').textContent = song ? song.name : '';
-
-      // 멤버용 현재 곡 표시
       const csd = document.getElementById('current-song-display');
       if (csd) {
-        if (song) {
-          csd.classList.add('visible');
-          document.getElementById('csd-name').textContent = song.name;
-          document.getElementById('csd-bpm').textContent = song.bpm + ' BPM';
-        } else {
-          csd.classList.remove('visible');
-        }
+        if (song) { csd.classList.add('visible'); document.getElementById('csd-name').textContent = song.name; document.getElementById('csd-bpm').textContent = song.bpm + ' BPM'; }
+        else csd.classList.remove('visible');
       }
-      if (!isHost) renderSetlist();
+      renderSetlist();
     }
-
-    // 멤버 목록
     if (d.members) renderMembers(d.members);
-
-    // 시작/정지
-    if (!isHost && d.isPlaying && d.startAt && d.startAt !== S.prevStartAt && !S.isPlaying) {
-      S.prevStartAt = d.startAt;
-      doCountdownAndStart(d.startAt);
-    }
+    if (!isHost && d.isPlaying && d.startAt && d.startAt !== S.prevStartAt && !S.isPlaying) { S.prevStartAt = d.startAt; doCountdownAndStart(d.startAt); }
     if (!isHost && !d.isPlaying && S.prevIsPlaying && S.isPlaying) stopNow();
     S.prevIsPlaying = d.isPlaying;
   });
 }
 
-// 멤버용 셋리스트 (읽기 전용, 선택 불가)
-function renderMemberSetlist(setlist) {
-  // 멤버는 셋리스트 편집 UI 없으므로 현재 곡 표시만
+window.addSong = function() {
+  const nameEl = document.getElementById('input-song-name');
+  const bpmEl = document.getElementById('input-song-bpm');
+  const name = nameEl.value.trim();
+  const bpm = parseInt(bpmEl.value);
+  if (!name) { alert('곡 이름을 입력하세요!'); return; }
+  if (!bpm || bpm < 40 || bpm > 240) { alert('BPM을 40~240 사이로 입력하세요!'); return; }
+  const song = { id: Date.now().toString(), name, bpm };
+  S.setlist.push(song);
+  nameEl.value = ''; bpmEl.value = '';
+  if (S.roomRef) update(S.roomRef, { setlist: S.setlist });
+  renderSetlist();
+}
+
+window.deleteSong = function(id) {
+  S.setlist = S.setlist.filter(s => s.id !== id);
+  if (S.activeSongId === id) { S.activeSongId = null; document.getElementById('current-song-name').textContent = ''; }
+  if (S.roomRef) update(S.roomRef, { setlist: S.setlist, activeSongId: S.activeSongId });
+  renderSetlist();
+}
+
+window.selectSong = function(id) {
+  const song = S.setlist.find(s => s.id === id);
+  if (!song) return;
+  S.activeSongId = id; S.bpm = song.bpm;
+  document.getElementById('bpm-display').textContent = song.bpm;
+  document.getElementById('bpm-readout').textContent = song.bpm + ' BPM';
+  document.getElementById('bpm-slider').value = song.bpm;
+  document.getElementById('current-song-name').textContent = song.name;
+  if (S.roomRef) update(S.roomRef, { bpm: song.bpm, activeSongId: id });
+  renderSetlist();
+  showToast(`${song.name} — ${song.bpm} BPM`);
+}
+
+function renderSetlist() {
+  const list = document.getElementById('setlist-list');
+  if (!list) return;
+  if (S.setlist.length === 0) { list.innerHTML = '<div class="setlist-empty">곡을 추가해보세요!</div>'; return; }
+  list.innerHTML = S.setlist.map((song, i) => `
+    <div class="song-item ${song.id === S.activeSongId ? 'active' : ''}" onclick="selectSong('${song.id}')">
+      <div class="song-num">${i + 1}</div>
+      <div class="song-info">
+        <div class="song-name">${song.name}</div>
+        <div class="song-bpm">${song.bpm} BPM</div>
+      </div>
+      ${song.id === S.activeSongId ? '<div class="song-active-badge">선택됨</div>' : ''}
+      <button class="btn-del-song" onclick="event.stopPropagation(); deleteSong('${song.id}')">✕</button>
+    </div>
+  `).join('');
 }
 
 window.startMetronome = async function() {
@@ -681,7 +795,6 @@ window.leaveRoom = async function() {
   document.getElementById('screen-lobby').classList.add('active');
 }
 
-// BPM
 window.changeBpm = function(d) {
   S.bpm = Math.min(240, Math.max(40, S.bpm + d));
   S.activeSongId = null;
@@ -694,8 +807,7 @@ window.changeBpm = function(d) {
 }
 
 window.setBpmSlider = function(val) {
-  S.bpm = parseInt(val);
-  S.activeSongId = null;
+  S.bpm = parseInt(val); S.activeSongId = null;
   document.getElementById('current-song-name').textContent = '';
   document.getElementById('bpm-display').textContent = S.bpm;
   document.getElementById('bpm-readout').textContent = S.bpm + ' BPM';
@@ -704,21 +816,18 @@ window.setBpmSlider = function(val) {
 }
 
 window.setTimeSig = function(n) {
-  S.timeSig = n;
-  renderBeatDots(n);
+  S.timeSig = n; renderBeatDots(n);
   document.querySelectorAll('.ts-btn').forEach(b => b.classList.remove('active'));
   document.getElementById('ts-' + n).classList.add('active');
   if (S.roomRef) update(S.roomRef, { timeSig: n });
 }
 
-// 딜레이
 window.changeOffset = function(delta) {
   S.userOffsetMs = Math.min(200, Math.max(-200, S.userOffsetMs + delta));
   updateOffsetDisplay();
 }
 window.setOffsetSlider = function(val) {
-  S.userOffsetMs = parseInt(val);
-  updateOffsetDisplay();
+  S.userOffsetMs = parseInt(val); updateOffsetDisplay();
 }
 function updateOffsetDisplay() {
   const el = document.getElementById('offset-readout');
@@ -728,10 +837,9 @@ function updateOffsetDisplay() {
   else { el.textContent = '0 ms'; el.className = 'ctrl-readout muted'; }
 }
 
-// UI 헬퍼
 window.copyCode = function() {
   navigator.clipboard.writeText(S.roomCode).catch(() => {});
-  showToast('복사됨!');
+  showToast('코드 복사됨!');
 }
 
 function showToast(msg) {
