@@ -170,6 +170,76 @@
 
   .toast { position:fixed; bottom:2rem; left:50%; transform:translateX(-50%) translateY(20px); background:var(--text); color:white; padding:0.55rem 1.3rem; border-radius:20px; font-size:0.78rem; font-weight:500; opacity:0; transition:all 0.3s; pointer-events:none; z-index:2000; }
   .toast.show { opacity:1; transform:translateX(-50%) translateY(0); }
+
+  /* HOME */
+  .home-hero { padding:2rem 0 1.5rem; }
+  .home-hero h1 { font-size:1.6rem; font-weight:900; color:var(--text); line-height:1.3; }
+  .home-hero h1 span { color:var(--accent); }
+  .home-hero p { font-size:0.85rem; color:var(--muted); margin-top:0.4rem; font-weight:400; }
+  .home-cards { display:flex; flex-direction:column; gap:1rem; margin-top:1.5rem; }
+  .home-card {
+    border-radius:16px; padding:1.5rem;
+    cursor:pointer; transition:all 0.18s;
+    display:flex; align-items:center; gap:1.2rem;
+    border:1.5px solid var(--border); background:var(--bg);
+  }
+  .home-card:hover { transform:translateY(-2px); box-shadow:0 6px 24px rgba(60,65,205,0.13); border-color:var(--accent); }
+  .home-card-icon { font-size:2.2rem; flex-shrink:0; }
+  .home-card-text {}
+  .home-card-title { font-size:1.05rem; font-weight:900; color:var(--text); margin-bottom:0.25rem; }
+  .home-card-desc { font-size:0.78rem; color:var(--muted); font-weight:400; line-height:1.5; }
+  .home-card.accent { background:var(--accent); border-color:var(--accent); }
+  .home-card.accent .home-card-title { color:white; }
+  .home-card.accent .home-card-desc { color:rgba(255,255,255,0.75); }
+
+  /* SOLO METRO */
+  .solo-header { display:flex; align-items:center; gap:0.8rem; margin-bottom:1.5rem; padding-bottom:1rem; border-bottom:1px solid var(--border); }
+  .btn-back { background:none; border:1px solid var(--border); color:var(--text2); padding:0.4rem 0.8rem; border-radius:8px; cursor:pointer; font-size:0.82rem; font-weight:600; font-family:'Noto Sans KR',sans-serif; transition:all 0.15s; }
+  .btn-back:hover { border-color:var(--accent); color:var(--accent); }
+  .solo-title { font-size:1.1rem; font-weight:900; color:var(--text); }
+
+  /* ===== 로그인 / 일지 공통 ===== */
+  .login-wrap { display:flex; flex-direction:column; align-items:center; justify-content:center; min-height:60vh; gap:1.5rem; padding:2rem; text-align:center; }
+  .login-icon { font-size:3.5rem; }
+  .login-title { font-size:1.3rem; font-weight:900; color:var(--text); }
+  .login-desc { font-size:0.85rem; color:var(--muted); line-height:1.6; }
+  .btn-google { display:flex; align-items:center; gap:0.75rem; background:#fff; border:1.5px solid var(--border); border-radius:12px; padding:0.85rem 1.5rem; font-size:0.95rem; font-weight:700; color:var(--text); cursor:pointer; box-shadow:0 2px 8px rgba(0,0,0,0.07); transition:all 0.15s; font-family:'Noto Sans KR',sans-serif; }
+  .btn-google:hover { border-color:var(--accent); box-shadow:0 4px 16px rgba(60,65,205,0.13); }
+  .btn-google svg { width:20px; height:20px; flex-shrink:0; }
+
+  /* 일지 목록 */
+  .diary-header { display:flex; align-items:center; justify-content:space-between; padding:1rem 1.5rem 0.75rem; border-bottom:1px solid var(--border); }
+  .diary-header-left { display:flex; align-items:center; gap:0.75rem; }
+  .diary-user { font-size:0.78rem; color:var(--muted); }
+  .btn-logout { background:none; border:1px solid var(--border); border-radius:8px; padding:0.3rem 0.7rem; font-size:0.75rem; color:var(--muted); cursor:pointer; font-family:'Noto Sans KR',sans-serif; }
+  .btn-logout:hover { border-color:var(--danger); color:var(--danger); }
+  .diary-list { padding:1rem 1.5rem; display:flex; flex-direction:column; gap:0.75rem; }
+  .diary-item { background:var(--surface); border-radius:14px; padding:1rem 1.2rem; cursor:pointer; transition:all 0.15s; border:1.5px solid transparent; }
+  .diary-item:hover { border-color:var(--accent); background:var(--accent-light); }
+  .diary-item-date { font-size:0.75rem; color:var(--muted); margin-bottom:0.3rem; }
+  .diary-item-song { font-size:1rem; font-weight:700; color:var(--text); margin-bottom:0.2rem; }
+  .diary-item-preview { font-size:0.8rem; color:var(--text2); white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+  .diary-empty { text-align:center; padding:3rem 1rem; color:var(--muted); font-size:0.9rem; line-height:1.8; }
+  .btn-new-diary { position:fixed; bottom:2rem; right:1.5rem; background:var(--accent); color:#fff; border:none; border-radius:50px; padding:0.85rem 1.5rem; font-size:0.95rem; font-weight:700; cursor:pointer; box-shadow:0 4px 16px rgba(60,65,205,0.35); font-family:'Noto Sans KR',sans-serif; transition:all 0.15s; z-index:10; }
+  .btn-new-diary:hover { transform:translateY(-2px); box-shadow:0 6px 24px rgba(60,65,205,0.45); }
+
+  /* 일지 작성/보기 */
+  .diary-form { padding:1.5rem; display:flex; flex-direction:column; gap:1.2rem; padding-bottom:6rem; }
+  .diary-form label { font-size:0.8rem; font-weight:700; color:var(--text2); margin-bottom:0.35rem; display:block; }
+  .diary-form input[type=text], .diary-form input[type=date], .diary-form input[type=time], .diary-form input[type=number], .diary-form textarea {
+    width:100%; background:var(--surface); border:1.5px solid var(--border); border-radius:10px;
+    padding:0.75rem 1rem; font-size:0.95rem; color:var(--text); font-family:'Noto Sans KR',sans-serif;
+    outline:none; transition:border 0.15s;
+  }
+  .diary-form input:focus, .diary-form textarea:focus { border-color:var(--accent); }
+  .diary-form textarea { resize:none; height:180px; line-height:1.7; }
+  .char-count { font-size:0.75rem; color:var(--muted); text-align:right; margin-top:0.25rem; }
+  .diary-form-header { display:flex; align-items:center; justify-content:space-between; padding:1rem 1.5rem 0.75rem; border-bottom:1px solid var(--border); }
+  .btn-save-diary { background:var(--accent); color:#fff; border:none; border-radius:10px; padding:0.65rem 1.3rem; font-size:0.9rem; font-weight:700; cursor:pointer; font-family:'Noto Sans KR',sans-serif; }
+  .btn-delete-diary { background:none; border:1px solid var(--border); border-radius:10px; padding:0.65rem 1rem; font-size:0.85rem; color:var(--muted); cursor:pointer; font-family:'Noto Sans KR',sans-serif; }
+  .btn-delete-diary:hover { border-color:var(--danger); color:var(--danger); }
+  .diary-form-actions { display:flex; gap:0.75rem; }
+
 </style>
 </head>
 <body>
@@ -185,12 +255,123 @@
 
 <div class="app">
 
-  <!-- LOBBY -->
-  <div id="screen-lobby" class="screen active">
-    <div class="lobby-hero">
+  <!-- HOME -->
+  <div id="screen-home" class="screen active">
+    <div class="home-hero">
       <h1>함께 맞추는<br><span>완벽한 박자</span></h1>
-      <p>밴드 멤버 모두가 같은 클릭을 듣는 메트로놈</p>
       <p>아영이 파이팅💙</p>
+    </div>
+    <div class="home-cards">
+      <div class="home-card" data-screen="screen-personal">
+        <div class="home-card-icon">🎧</div>
+        <div class="home-card-text">
+          <div class="home-card-title">개인 연습</div>
+          <div class="home-card-desc">혼자 쓰는 메트로놈<br>인터넷 없이도 사용 가능</div>
+        </div>
+      </div>
+      <div class="home-card accent" data-screen="screen-lobby">
+        <div class="home-card-icon">🎸</div>
+        <div class="home-card-text">
+          <div class="home-card-title">팀 연습</div>
+          <div class="home-card-desc">밴드 멤버 모두가 같은 박자로<br>실시간 동기화 메트로놈</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PERSONAL SUB-MENU -->
+  <div id="screen-personal" class="screen">
+    <div class="screen-header">
+      <button class="btn-back" data-screen="screen-home">← 홈</button>
+    </div>
+    <div class="home-hero" style="margin-bottom:0.5rem;">
+      <h1>개인 연습</h1>
+    </div>
+    <div class="home-cards">
+      <div class="home-card" data-screen="screen-solo">
+        <div class="home-card-icon">🥁</div>
+        <div class="home-card-text">
+          <div class="home-card-title">개인 메트로놈</div>
+          <div class="home-card-desc">혼자 쓰는 메트로놈<br>인터넷 없이도 사용 가능</div>
+        </div>
+      </div>
+      <div class="home-card" onclick="openDiary()">
+        <div class="home-card-icon">📓</div>
+        <div class="home-card-text">
+          <div class="home-card-title">개인 일지</div>
+          <div class="home-card-desc">나만의 연습 기록 관리<br>Google 로그인으로 기기 간 동기화</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- LOGIN -->
+  <div id="screen-login" class="screen">
+    <div class="screen-header">
+      <button class="btn-back" data-screen="screen-personal">← 개인 연습</button>
+    </div>
+    <div class="login-wrap">
+      <div class="login-icon">📓</div>
+      <div class="login-title">개인 일지</div>
+      <div class="login-desc">Google 계정으로 로그인하면<br>어떤 기기에서도 일지를 확인할 수 있어요</div>
+      <button class="btn-google" onclick="loginWithGoogle()">
+        <svg viewBox="0 0 24 24"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg>
+        Google로 로그인
+      </button>
+    </div>
+  </div>
+
+  <!-- DIARY LIST -->
+  <div id="screen-diary-list" class="screen">
+    <div class="diary-header">
+      <div class="diary-header-left">
+        <button class="btn-back" data-screen="screen-personal">← 개인 연습</button>
+        <span class="diary-user" id="diary-user-name"></span>
+      </div>
+      <button class="btn-logout" onclick="logoutUser()">로그아웃</button>
+    </div>
+    <div class="diary-list" id="diary-list-container">
+      <div class="diary-empty">불러오는 중...</div>
+    </div>
+    <button class="btn-new-diary" onclick="openNewDiary()">+ 새 일지</button>
+  </div>
+
+  <!-- DIARY EDIT -->
+  <div id="screen-diary-edit" class="screen">
+    <div class="diary-form-header">
+      <button class="btn-back" onclick="showScreen('screen-diary-list')">← 목록</button>
+      <div class="diary-form-actions">
+        <button class="btn-delete-diary" id="btn-delete-diary" onclick="deleteDiary()" style="display:none">삭제</button>
+        <button class="btn-save-diary" onclick="saveDiary()">저장</button>
+      </div>
+    </div>
+    <div class="diary-form">
+      <div>
+        <label>연습 날짜</label>
+        <input type="date" id="diary-date">
+      </div>
+      <div>
+        <label>연습 시간</label>
+        <input type="number" id="diary-time" placeholder="예: 1.5" min="0.5" max="24" step="0.5">
+        <span style="font-size:0.75rem;color:var(--muted);margin-top:0.3rem;display:block;">시간 단위 (예: 1, 1.5, 2)</span>
+      </div>
+      <div>
+        <label>연습곡</label>
+        <input type="text" id="diary-song" placeholder="예: 밤양갱, 자유곡 등" maxlength="50">
+      </div>
+      <div>
+        <label>메모</label>
+        <textarea id="diary-memo" placeholder="오늘 연습 내용을 자유롭게 적어보세요" maxlength="1000" oninput="updateCharCount()"></textarea>
+        <div class="char-count"><span id="char-count">0</span> / 1000</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- LOBBY -->
+  <div id="screen-lobby" class="screen">
+    <div class="lobby-hero" style="display:flex;align-items:center;gap:0.8rem;margin-bottom:1.5rem;padding-bottom:1rem;border-bottom:1px solid var(--border);padding-top:0;">
+      <button class="btn-back" data-screen="screen-home">← 홈</button>
+      <h1 style="font-size:1.1rem;font-weight:900;">팀 연습</h1>
     </div>
     <div class="input-group" style="margin-bottom:1.5rem;">
       <label>닉네임</label>
@@ -319,6 +500,63 @@
     <button class="btn-leave" onclick="leaveRoom()">← 나가기</button>
   </div>
 
+
+  <!-- SOLO METRO -->
+  <div id="screen-solo" class="screen">
+    <div class="solo-header">
+      <button class="btn-back" data-screen="screen-personal">← 개인 연습</button>
+      <div class="solo-title">개인 메트로놈</div>
+    </div>
+
+    <div class="beat-display">
+      <div class="beat-circle" id="solo-beat-circle">
+        <div class="bpm-big" id="solo-bpm-display">120</div>
+        <div class="bpm-label">BPM</div>
+      </div>
+      <div class="beat-dots" id="solo-beat-dots"></div>
+    </div>
+
+    <div class="control-box">
+      <div class="ctrl-top">
+        <div class="ctrl-label">템포</div>
+        <div class="ctrl-readout accent" id="solo-bpm-readout">120 BPM</div>
+      </div>
+      <div class="btn-row">
+        <button class="ctrl-btn" onclick="soloChangeBpm(-5)">−5</button>
+        <button class="ctrl-btn" onclick="soloChangeBpm(-1)">−</button>
+        <input type="range" id="solo-bpm-slider" min="40" max="240" value="120" oninput="soloSetBpmSlider(this.value)">
+        <button class="ctrl-btn" onclick="soloChangeBpm(1)">+</button>
+        <button class="ctrl-btn" onclick="soloChangeBpm(5)">+5</button>
+      </div>
+    </div>
+
+    <div class="time-sig-row">
+      <div class="ts-label">박자</div>
+      <div class="ts-btns">
+        <button class="ts-btn active" onclick="soloSetTimeSig(4)" id="solo-ts-4">4/4</button>
+        <button class="ts-btn" onclick="soloSetTimeSig(3)" id="solo-ts-3">3/4</button>
+        <button class="ts-btn" onclick="soloSetTimeSig(6)" id="solo-ts-6">6/8</button>
+        <button class="ts-btn" onclick="soloSetTimeSig(2)" id="solo-ts-2">2/4</button>
+      </div>
+    </div>
+
+    <div class="setlist-box">
+      <div class="setlist-header">
+        <div class="setlist-title">🎵 내 셋리스트</div>
+      </div>
+      <div class="setlist-add-form">
+        <input type="text" id="solo-input-song-name" placeholder="곡 이름" maxlength="30">
+        <input type="text" id="solo-input-song-bpm" placeholder="BPM" maxlength="3" class="bpm-input" inputmode="numeric">
+        <button class="btn-add-song" onclick="soloAddSong()">+ 추가</button>
+      </div>
+      <div class="setlist-list" id="solo-setlist-list">
+        <div class="setlist-empty">곡을 추가해보세요!</div>
+      </div>
+    </div>
+
+    <button class="btn-start" id="solo-btn-start" onclick="soloToggle()">▶ 시작</button>
+  </div>
+
 </div>
 
 <div class="countdown-overlay" id="countdown-overlay">
@@ -327,9 +565,10 @@
 </div>
 <div class="toast" id="toast"></div>
 
-<script type="module">
-import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
-import { getDatabase, ref, set, get, update, onValue, remove, serverTimestamp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-database.js";
+<script src="https://cdnjs.cloudflare.com/ajax/libs/firebase/10.12.2/firebase-app-compat.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/firebase/10.12.2/firebase-database-compat.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/firebase/10.12.2/firebase-auth-compat.min.js"></script>
+<script>
 
 const firebaseConfig = {
   apiKey: "AIzaSyAjExOj4c1VfxRpmrCWOMR69WCX7sr6HeI",
@@ -341,8 +580,23 @@ const firebaseConfig = {
   databaseURL: "https://band-click-default-rtdb.asia-southeast1.firebasedatabase.app"
 };
 
-const fbApp = initializeApp(firebaseConfig);
-const db = getDatabase(fbApp);
+const fbApp = firebase.initializeApp(firebaseConfig);
+const db = firebase.database();
+const auth = firebase.auth();
+let currentUser = null;
+
+// Firebase compat SDK helpers
+function ref(path) { return db.ref(path); }
+function set(r, v) { return r.set(v); }
+function get(r) { return r.get(); }
+function update(r, v) { return r.update(v); }
+function remove(r) { return r.remove(); }
+function onValue(r, cb, opts) {
+  if (opts && opts.onlyOnce) { r.once('value').then(cb); return () => {}; }
+  const unsub = r.on('value', cb);
+  return () => r.off('value', unsub);
+}
+function serverTimestamp() { return firebase.database.ServerValue.TIMESTAMP; }
 
 const S = {
   myId: Math.random().toString(36).slice(2, 10),
@@ -363,7 +617,7 @@ async function syncServerTime() {
   const samples = [];
   for (let i = 0; i < 5; i++) {
     await new Promise(resolve => {
-      onValue(ref(db, '.info/serverTimeOffset'), snap => { samples.push(snap.val() || 0); resolve(); }, { onlyOnce: true });
+      onValue(ref('.info/serverTimeOffset'), snap => { samples.push(snap.val() || 0); resolve(); }, { onlyOnce: true });
     });
     if (i < 4) await new Promise(r => setTimeout(r, 150));
   }
@@ -481,42 +735,46 @@ function applyMemberUI() {
   document.getElementById('member-panel').style.display = 'block';
 }
 
-window.createRoom = async function() {
+async function createRoom() {
   const name = document.getElementById('input-name').value.trim();
   const roomName = document.getElementById('input-room-name').value.trim();
   if (!name) { alert('닉네임을 입력하세요!'); return; }
   if (!roomName) { alert('방 이름을 입력하세요!'); return; }
   const code = generateCode();
   S.myName = name; S.isHost = true; S.roomCode = code;
-  await set(ref(db, 'rooms/' + code), { name: roomName, bpm: 120, timeSig: 4, isPlaying: false, startAt: null, setlist: [], activeSongId: null, createdAt: serverTimestamp() });
-  await set(ref(db, `rooms/${code}/members/${S.myId}`), { name, isHost: true, joinedAt: serverTimestamp() });
+  await set(ref('rooms/' + code), { name: roomName, bpm: 120, timeSig: 4, isPlaying: false, startAt: null, setlist: [], activeSongId: null, createdAt: serverTimestamp() });
+  await set(ref(`rooms/${code}/members/${S.myId}`), { name, isHost: true, joinedAt: serverTimestamp() });
   enterRoom(code, roomName, true);
   syncServerTime();
 }
 
-window.joinRoom = async function() {
+async function joinRoom() {
   const name = document.getElementById('input-name').value.trim();
   const code = document.getElementById('input-room-code').value.trim().toUpperCase();
   if (!name) { alert('닉네임을 입력하세요!'); return; }
   if (!code) { alert('방 코드를 입력하세요!'); return; }
-  const snap = await get(ref(db, 'rooms/' + code));
+  const snap = await get(ref('rooms/' + code));
   if (!snap.exists()) { alert('방을 찾을 수 없어요!'); return; }
   const data = snap.val();
   S.myName = name; S.isHost = false; S.roomCode = code;
-  await set(ref(db, `rooms/${code}/members/${S.myId}`), { name, isHost: false, joinedAt: serverTimestamp() });
+  await set(ref(`rooms/${code}/members/${S.myId}`), { name, isHost: false, joinedAt: serverTimestamp() });
   enterRoom(code, data.name, false);
   syncServerTime();
 }
 
+function showScreen(id) {
+  if (typeof soloStop === 'function' && id !== 'screen-solo') soloStop();
+  document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+}
+
 function enterRoom(code, roomName, isHost) {
-  document.getElementById('screen-lobby').classList.remove('active');
-  document.getElementById('screen-room').classList.add('active');
+  showScreen('screen-room');
   document.getElementById('display-room-name').textContent = roomName;
   document.getElementById('display-room-code').textContent = code;
   isHost ? applyHostUI() : applyMemberUI();
-  renderBeatDots(4); setStatus('', '대기 중...');
 
-  S.roomRef = ref(db, 'rooms/' + code);
+  S.roomRef = ref('rooms/' + code);
   S.prevStartAt = null; S.prevIsPlaying = false;
 
   S.unsubscribe = onValue(S.roomRef, snap => {
@@ -524,7 +782,7 @@ function enterRoom(code, roomName, isHost) {
       // 방 삭제됨 → 로비로
       stopNow();
       document.getElementById('screen-room').classList.remove('active');
-      document.getElementById('screen-lobby').classList.add('active');
+      showScreen('screen-home');
       showToast('방장이 방을 종료했어요');
       return;
     }
@@ -570,16 +828,193 @@ function enterRoom(code, roomName, isHost) {
   });
 }
 
-window.transferHost = async function(newHostId, newHostName) {
+// ============================
+// 개인 메트로놈
+// ============================
+const Solo = {
+  bpm: 120, timeSig: 4, isPlaying: false,
+  currentBeat: 0, audioCtx: null,
+  nextBeatTime: 0, schedulerTimer: null, beatFlashTimer: null,
+  setlist: JSON.parse(localStorage.getItem('clink_solo_setlist') || '[]'),
+  activeSongId: null,
+};
+
+function soloGetCtx() {
+  if (!Solo.audioCtx) Solo.audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+  return Solo.audioCtx;
+}
+
+function soloClick(time, isDown) {
+  const ctx = soloGetCtx();
+  const osc = ctx.createOscillator(), gain = ctx.createGain();
+  osc.connect(gain); gain.connect(ctx.destination);
+  osc.frequency.value = isDown ? 1800 : 1000;
+  gain.gain.setValueAtTime(isDown ? 0.7 : 0.4, time);
+  gain.gain.exponentialRampToValueAtTime(0.001, time + 0.05);
+  osc.start(time); osc.stop(time + 0.06);
+}
+
+function soloScheduler() {
+  if (!Solo.isPlaying) return;
+  const ctx = soloGetCtx();
+  while (Solo.nextBeatTime < ctx.currentTime + 0.1) {
+    const beat = Solo.currentBeat % Solo.timeSig;
+    soloClick(Solo.nextBeatTime, beat === 0);
+    const delay = (Solo.nextBeatTime - ctx.currentTime) * 1000, b = beat;
+    setTimeout(() => soloFlash(b), Math.max(0, delay));
+    Solo.nextBeatTime += 60 / Solo.bpm;
+    Solo.currentBeat++;
+  }
+}
+
+function soloFlash(beat) {
+  const circle = document.getElementById('solo-beat-circle');
+  const dots = document.querySelectorAll('#solo-beat-dots .beat-dot');
+  circle.classList.add('beat-on');
+  if (beat === 0) circle.classList.add('downbeat');
+  dots.forEach((d, i) => {
+    d.classList.remove('active','downbeat');
+    if (i === beat) { d.classList.add('active'); if (beat === 0) d.classList.add('downbeat'); }
+  });
+  clearTimeout(Solo.beatFlashTimer);
+  Solo.beatFlashTimer = setTimeout(() => circle.classList.remove('beat-on','downbeat'), 80);
+}
+
+
+// ===========================
+// 개인 셋리스트
+// ===========================
+function soloSaveSetlist() {
+  localStorage.setItem('clink_solo_setlist', JSON.stringify(Solo.setlist));
+}
+
+function soloAddSong() {
+  const nameEl = document.getElementById('solo-input-song-name');
+  const bpmEl = document.getElementById('solo-input-song-bpm');
+  const name = nameEl.value.trim();
+  const bpm = parseInt(bpmEl.value);
+  if (!name) { alert('곡 이름을 입력하세요!'); return; }
+  if (!bpm || bpm < 40 || bpm > 240) { alert('BPM을 40~240 사이로 입력하세요!'); return; }
+  const song = { id: Date.now().toString(), name, bpm };
+  Solo.setlist.push(song);
+  nameEl.value = ''; bpmEl.value = '';
+  soloSaveSetlist();
+  soloRenderSetlist();
+}
+
+function soloDeleteSong(id) {
+  Solo.setlist = Solo.setlist.filter(s => s.id !== id);
+  if (Solo.activeSongId === id) Solo.activeSongId = null;
+  soloSaveSetlist();
+  soloRenderSetlist();
+}
+
+function soloSelectSong(id) {
+  const song = Solo.setlist.find(s => s.id === id);
+  if (!song) return;
+  Solo.activeSongId = id;
+  Solo.bpm = song.bpm;
+  document.getElementById('solo-bpm-display').textContent = song.bpm;
+  document.getElementById('solo-bpm-readout').textContent = song.bpm + ' BPM';
+  document.getElementById('solo-bpm-slider').value = song.bpm;
+  soloRenderSetlist();
+  showToast(song.name + ' — ' + song.bpm + ' BPM');
+}
+
+function soloRenderSetlist() {
+  const list = document.getElementById('solo-setlist-list');
+  if (!list) return;
+  if (Solo.setlist.length === 0) {
+    list.innerHTML = '<div class="setlist-empty">곡을 추가해보세요!</div>';
+    return;
+  }
+  list.innerHTML = Solo.setlist.map((song, i) => `
+    <div class="song-item ${song.id === Solo.activeSongId ? 'active' : ''}" onclick="soloSelectSong('${song.id}')">
+      <div class="song-num">${i + 1}</div>
+      <div class="song-info">
+        <div class="song-name">${song.name}</div>
+        <div class="song-bpm">${song.bpm} BPM</div>
+      </div>
+      ${song.id === Solo.activeSongId ? '<div class="song-active-badge">선택됨</div>' : ''}
+      <button class="btn-del-song" onclick="event.stopPropagation(); soloDeleteSong('${song.id}')">✕</button>
+    </div>
+  `).join('');
+}
+
+function soloStop() {
+  Solo.isPlaying = false;
+  clearInterval(Solo.schedulerTimer); Solo.schedulerTimer = null;
+  const circle = document.getElementById('solo-beat-circle');
+  if (circle) circle.classList.remove('beat-on','downbeat');
+  document.querySelectorAll('#solo-beat-dots .beat-dot').forEach(d => d.classList.remove('active','downbeat'));
+  const btn = document.getElementById('solo-btn-start');
+  if (btn) btn.textContent = '▶ 시작';
+}
+
+async function soloToggle() {
+  const ctx = soloGetCtx();
+  await ctx.resume();
+  if (Solo.isPlaying) {
+    soloStop();
+  } else {
+    Solo.isPlaying = true;
+    Solo.currentBeat = 0;
+    Solo.nextBeatTime = ctx.currentTime + 0.05;
+    Solo.schedulerTimer = setInterval(soloScheduler, 25);
+    document.getElementById('solo-btn-start').textContent = '■ 정지';
+  }
+}
+
+function soloChangeBpm(d) {
+  Solo.bpm = Math.min(240, Math.max(40, Solo.bpm + d));
+  document.getElementById('solo-bpm-display').textContent = Solo.bpm;
+  document.getElementById('solo-bpm-readout').textContent = Solo.bpm + ' BPM';
+  document.getElementById('solo-bpm-slider').value = Solo.bpm;
+}
+
+function soloSetBpmSlider(val) {
+  Solo.bpm = parseInt(val);
+  document.getElementById('solo-bpm-display').textContent = Solo.bpm;
+  document.getElementById('solo-bpm-readout').textContent = Solo.bpm + ' BPM';
+}
+
+function soloSetTimeSig(n) {
+  Solo.timeSig = n;
+  const c = document.getElementById('solo-beat-dots'); c.innerHTML = '';
+  for (let i = 0; i < n; i++) {
+    const d = document.createElement('div');
+    d.className = 'beat-dot' + (i === 0 ? ' downbeat' : '');
+    c.appendChild(d);
+  }
+  document.querySelectorAll('.ts-btn[id^="solo-ts-"]').forEach(b => b.classList.remove('active'));
+  document.getElementById('solo-ts-' + n).classList.add('active');
+}
+
+// 솔로 비트 닷 초기화
+const soloDots = document.getElementById('solo-beat-dots');
+if (soloDots) {
+  for (let i = 0; i < 4; i++) {
+    const d = document.createElement('div');
+    d.className = 'beat-dot' + (i === 0 ? ' downbeat' : '');
+    soloDots.appendChild(d);
+  }
+}
+
+renderBeatDots(4); setStatus('', '대기 중...');
+soloRenderSetlist();
+
+
+
+async function transferHost(newHostId, newHostName) {
   if (!S.isHost) return;
   if (!confirm(`${newHostName}님에게 방장을 넘기시겠어요?`)) return;
-  await update(ref(db, `rooms/${S.roomCode}/members/${S.myId}`), { isHost: false });
-  await update(ref(db, `rooms/${S.roomCode}/members/${newHostId}`), { isHost: true });
+  await update(ref(`rooms/${S.roomCode}/members/${S.myId}`), { isHost: false });
+  await update(ref(`rooms/${S.roomCode}/members/${newHostId}`), { isHost: true });
   applyMemberUI();
   showToast('방장을 넘겼어요');
 }
 
-window.addSong = function() {
+function addSong() {
   const nameEl = document.getElementById('input-song-name');
   const bpmEl = document.getElementById('input-song-bpm');
   const name = nameEl.value.trim();
@@ -593,14 +1028,14 @@ window.addSong = function() {
   renderSetlist();
 }
 
-window.deleteSong = function(id) {
+function deleteSong(id) {
   S.setlist = S.setlist.filter(s => s.id !== id);
   if (S.activeSongId === id) { S.activeSongId = null; document.getElementById('current-song-name').textContent = ''; }
   if (S.roomRef) update(S.roomRef, { setlist: S.setlist, activeSongId: S.activeSongId });
   renderSetlist();
 }
 
-window.selectSong = function(id) {
+function selectSong(id) {
   const song = S.setlist.find(s => s.id === id);
   if (!song) return;
   S.activeSongId = id; S.bpm = song.bpm;
@@ -630,33 +1065,38 @@ function renderSetlist() {
   `).join('');
 }
 
-window.startMetronome = async function() {
+async function startMetronome() {
   if (S.isPlaying) return;
   const startAt = serverNow() + 4000;
   await update(S.roomRef, { isPlaying: true, startAt, bpm: S.bpm, timeSig: S.timeSig });
   doCountdownAndStart(startAt);
 }
 
-window.stopMetronome = async function() {
+async function stopMetronome() {
   await update(S.roomRef, { isPlaying: false, startAt: null });
   stopNow();
 }
 
-window.leaveRoom = async function() {
-  if (S.unsubscribe) S.unsubscribe();
-  stopNow();
+async function leaveRoom() {
   if (S.isHost) {
     if (!confirm('방을 나가면 방이 삭제되고 모든 멤버가 퇴장돼요. 나가시겠어요?')) return;
-    await remove(ref(db, `rooms/${S.roomCode}`));
-  } else {
-    await remove(ref(db, `rooms/${S.roomCode}/members/${S.myId}`));
+  }
+  if (S.unsubscribe) S.unsubscribe();
+  stopNow();
+  try {
+    if (S.isHost) {
+      await remove(ref(`rooms/${S.roomCode}`));
+    } else {
+      await remove(ref(`rooms/${S.roomCode}/members/${S.myId}`));
+    }
+  } catch(e) {
+    console.error('leaveRoom error:', e);
   }
   S.roomCode = ''; S.isHost = false;
-  document.getElementById('screen-room').classList.remove('active');
-  document.getElementById('screen-lobby').classList.add('active');
+  showScreen('screen-home');
 }
 
-window.changeBpm = function(d) {
+function changeBpm(d) {
   S.bpm = Math.min(240, Math.max(40, S.bpm + d));
   S.activeSongId = null;
   document.getElementById('current-song-name').textContent = '';
@@ -667,7 +1107,7 @@ window.changeBpm = function(d) {
   renderSetlist();
 }
 
-window.setBpmSlider = function(val) {
+function setBpmSliderfunction(val) {
   S.bpm = parseInt(val); S.activeSongId = null;
   document.getElementById('current-song-name').textContent = '';
   document.getElementById('bpm-display').textContent = S.bpm;
@@ -676,18 +1116,18 @@ window.setBpmSlider = function(val) {
   renderSetlist();
 }
 
-window.setTimeSig = function(n) {
+function setTimeSig(n) {
   S.timeSig = n; renderBeatDots(n);
   document.querySelectorAll('.ts-btn').forEach(b => b.classList.remove('active'));
   document.getElementById('ts-' + n).classList.add('active');
   if (S.roomRef) update(S.roomRef, { timeSig: n });
 }
 
-window.changeOffset = function(delta) {
+function changeOffset(delta) {
   S.userOffsetMs = Math.min(200, Math.max(-200, S.userOffsetMs + delta));
   updateOffsetDisplay();
 }
-window.setOffsetSlider = function(val) {
+function setOffsetSliderfunction(val) {
   S.userOffsetMs = parseInt(val); updateOffsetDisplay();
 }
 function updateOffsetDisplay() {
@@ -698,7 +1138,7 @@ function updateOffsetDisplay() {
   else { el.textContent = '0 ms'; el.className = 'ctrl-readout muted'; }
 }
 
-window.copyCode = function() {
+function copyCode() {
   navigator.clipboard.writeText(S.roomCode).catch(() => {});
   showToast('코드 복사됨!');
 }
@@ -738,6 +1178,157 @@ function setStatus(type, text) {
 }
 
 renderBeatDots(4);
+
+
+document.addEventListener('click', function(e) {
+  const el = e.target.closest('[data-screen]');
+  if (!el) return;
+  if (e.target.closest('[onclick]')) return;
+  const id = el.getAttribute('data-screen');
+  if (id !== 'screen-solo' && typeof soloStop === 'function') soloStop();
+  document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+});
+
+
+// ===========================
+// 인증 + 개인 일지
+// ===========================
+let currentDiaryId = null;
+
+auth.onAuthStateChanged(user => {
+  currentUser = user;
+});
+
+function openDiary() {
+  if (currentUser) {
+    showScreen('screen-diary-list');
+    loadDiaries();
+    document.getElementById('diary-user-name').textContent = currentUser.displayName || currentUser.email;
+  } else {
+    showScreen('screen-login');
+  }
+}
+
+async function loginWithGoogle() {
+  try {
+    const provider = new firebase.auth.GoogleAuthProvider();
+    await auth.signInWithPopup(provider);
+    currentUser = auth.currentUser;
+    showScreen('screen-diary-list');
+    loadDiaries();
+    document.getElementById('diary-user-name').textContent = currentUser.displayName || currentUser.email;
+  } catch (e) {
+    alert('로그인 실패: ' + e.message);
+  }
+}
+
+async function logoutUser() {
+  if (!confirm('로그아웃 할까요?')) return;
+  await auth.signOut();
+  currentUser = null;
+  showScreen('screen-personal');
+}
+
+async function loadDiaries() {
+  if (!currentUser) return;
+  const container = document.getElementById('diary-list-container');
+  container.innerHTML = '<div class="diary-empty">불러오는 중...</div>';
+  try {
+    const snap = await ref('users/' + currentUser.uid + '/diaries').get();
+    if (!snap.exists() || !snap.val()) {
+      container.innerHTML = '<div class="diary-empty">아직 작성한 일지가 없어요 😊<br>+ 새 일지 버튼을 눌러 첫 일지를 써보세요!</div>';
+      return;
+    }
+    const entries = Object.entries(snap.val())
+      .sort((a, b) => (b[1].date + b[1].time) > (a[1].date + a[1].time) ? 1 : -1);
+    container.innerHTML = entries.map(([id, d]) => {
+      const dateStr = d.date ? d.date.replace(/-/g, '.') : '날짜 없음';
+      const timeStr = d.time ? ' ' + d.time : '';
+      return `<div class="diary-item" onclick="openEditDiary('${id}')">
+        <div class="diary-item-date">${dateStr}${timeStr}</div>
+        <div class="diary-item-song">${d.song || '곡 없음'}</div>
+        <div class="diary-item-preview">${d.memo || '메모 없음'}</div>
+      </div>`;
+    }).join('');
+  } catch (e) {
+    container.innerHTML = '<div class="diary-empty">불러오기 실패: ' + e.message + '</div>';
+  }
+}
+
+function openNewDiary() {
+  currentDiaryId = null;
+  const today = new Date().toISOString().slice(0, 10);
+  document.getElementById('diary-date').value = today;
+  document.getElementById('diary-time').value = '';
+  document.getElementById('diary-song').value = '';
+  document.getElementById('diary-memo').value = '';
+  document.getElementById('char-count').textContent = '0';
+  document.getElementById('btn-delete-diary').style.display = 'none';
+  showScreen('screen-diary-edit');
+}
+
+async function openEditDiary(id) {
+  currentDiaryId = id;
+  try {
+    const snap = await ref('users/' + currentUser.uid + '/diaries/' + id).get();
+    if (!snap.exists()) { alert('일지를 찾을 수 없어요'); return; }
+    const d = snap.val();
+    document.getElementById('diary-date').value = d.date || '';
+    document.getElementById('diary-time').value = d.time || '';
+    document.getElementById('diary-song').value = d.song || '';
+    document.getElementById('diary-memo').value = d.memo || '';
+    document.getElementById('char-count').textContent = (d.memo || '').length;
+    document.getElementById('btn-delete-diary').style.display = 'inline-block';
+    showScreen('screen-diary-edit');
+  } catch (e) {
+    alert('불러오기 실패: ' + e.message);
+  }
+}
+
+async function saveDiary() {
+  if (!currentUser) return;
+  const data = {
+    date: document.getElementById('diary-date').value,
+    time: document.getElementById('diary-time').value,
+    song: document.getElementById('diary-song').value.trim(),
+    memo: document.getElementById('diary-memo').value.trim(),
+    updatedAt: serverTimestamp(),
+  };
+  try {
+    if (currentDiaryId) {
+      await ref('users/' + currentUser.uid + '/diaries/' + currentDiaryId).update(data);
+    } else {
+      data.createdAt = serverTimestamp();
+      const newRef = ref('users/' + currentUser.uid + '/diaries').push();
+      await newRef.set(data);
+    }
+    showToast('저장했어요 ✓');
+    showScreen('screen-diary-list');
+    loadDiaries();
+  } catch (e) {
+    alert('저장 실패: ' + e.message);
+  }
+}
+
+async function deleteDiary() {
+  if (!currentDiaryId) return;
+  if (!confirm('이 일지를 삭제할까요?')) return;
+  try {
+    await remove(ref('users/' + currentUser.uid + '/diaries/' + currentDiaryId));
+    showToast('삭제했어요');
+    showScreen('screen-diary-list');
+    loadDiaries();
+  } catch (e) {
+    alert('삭제 실패: ' + e.message);
+  }
+}
+
+function updateCharCount() {
+  const len = document.getElementById('diary-memo').value.length;
+  document.getElementById('char-count').textContent = len;
+}
+
 </script>
 </body>
 </html>
