@@ -594,8 +594,10 @@ const firebaseConfig = {
 
 const fbApp = firebase.initializeApp(firebaseConfig);
 const db = firebase.database();
+/* DIARY: auth 초기화 (주석처리됨)
 const auth = firebase.auth();
-let currentUser = null;
+/* DIARY: let currentUser = null; */
+
 // Firebase compat SDK helpers
 function ref(path) { return db.ref(path); }
 function set(r, v) { return r.set(v); }
@@ -1195,9 +1197,9 @@ renderBeatDots(4);
 document.addEventListener('click', function(e) {
   const el = e.target.closest('[data-screen]');
   if (!el) return;
-  // 버튼 자체에 onclick이 있으면 화면 전환 스킵 (방 만들기 등)
+  // onclick 붙은 버튼(방 만들기 등)은 화면 전환 스킵
   if (e.target.tagName === 'BUTTON' && e.target.hasAttribute('onclick')) return;
-  // onclick이 붙은 카드(개인 일지 등)는 화면 전환 스킵
+  // onclick 붙은 카드(개인 일지 등)는 화면 전환 스킵
   if (el.hasAttribute('onclick')) return;
   const id = el.getAttribute('data-screen');
   if (id !== 'screen-solo' && typeof soloStop === 'function') soloStop();
@@ -1260,11 +1262,11 @@ async function loadDiaries() {
     container.innerHTML = entries.map(([id, d]) => {
       const dateStr = d.date ? d.date.replace(/-/g, '.') : '날짜 없음';
       const timeStr = d.time ? ' ' + d.time + '시간' : '';
-      return `<div class="diary-item" onclick="openEditDiary('${id}')">
-        <div class="diary-item-date">${dateStr}${timeStr}</div>
-        <div class="diary-item-song">${d.song || '곡 없음'}</div>
-        <div class="diary-item-preview">${d.memo || '메모 없음'}</div>
-      </div>`;
+      return `<div class="diary-item" onclick="openEditDiary('${id}')">`
+        + '<div class="diary-item-date">' + dateStr + timeStr + '</div>'
+        + '<div class="diary-item-song">' + (d.song || '곡 없음') + '</div>'
+        + '<div class="diary-item-preview">' + (d.memo || '메모 없음') + '</div>'
+        + '</div>';
     }).join('');
   } catch (e) {
     container.innerHTML = '<div class="diary-empty">불러오기 실패: ' + e.message + '</div>';
@@ -1343,6 +1345,8 @@ function updateCharCount() {
   const len = document.getElementById('diary-memo').value.length;
   document.getElementById('char-count').textContent = len;
 }
+
+
 </script>
 </body>
 </html>
