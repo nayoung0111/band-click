@@ -594,11 +594,8 @@ const firebaseConfig = {
 
 const fbApp = firebase.initializeApp(firebaseConfig);
 const db = firebase.database();
-/* DIARY: auth 초기화 (주석처리됨)
 const auth = firebase.auth();
-/* DIARY: let currentUser = null; */
-*/
-
+let currentUser = null;
 // Firebase compat SDK helpers
 function ref(path) { return db.ref(path); }
 function set(r, v) { return r.set(v); }
@@ -1208,9 +1205,6 @@ document.addEventListener('click', function(e) {
   document.getElementById(id).classList.add('active');
 });
 
-/* DIARY JS - 주석처리됨 (복구하려면 이 주석 제거)
-
-=========================== 
 
 let currentDiaryId = null;
 
@@ -1266,11 +1260,11 @@ async function loadDiaries() {
     container.innerHTML = entries.map(([id, d]) => {
       const dateStr = d.date ? d.date.replace(/-/g, '.') : '날짜 없음';
       const timeStr = d.time ? ' ' + d.time + '시간' : '';
-      return '<div class="diary-item" onclick="openEditDiary('' + id + '')">'
-        + '<div class="diary-item-date">' + dateStr + timeStr + '</div>'
-        + '<div class="diary-item-song">' + (d.song || '곡 없음') + '</div>'
-        + '<div class="diary-item-preview">' + (d.memo || '메모 없음') + '</div>'
-        + '</div>';
+      return `<div class="diary-item" onclick="openEditDiary('${id}')">
+        <div class="diary-item-date">${dateStr}${timeStr}</div>
+        <div class="diary-item-song">${d.song || '곡 없음'}</div>
+        <div class="diary-item-preview">${d.memo || '메모 없음'}</div>
+      </div>`;
     }).join('');
   } catch (e) {
     container.innerHTML = '<div class="diary-empty">불러오기 실패: ' + e.message + '</div>';
@@ -1349,9 +1343,6 @@ function updateCharCount() {
   const len = document.getElementById('diary-memo').value.length;
   document.getElementById('char-count').textContent = len;
 }
-
-
-*/
 </script>
 </body>
 </html>
