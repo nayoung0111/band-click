@@ -198,16 +198,9 @@
   .btn-back:hover { border-color:var(--accent); color:var(--accent); }
   .solo-title { font-size:1.1rem; font-weight:900; color:var(--text); }
 
-  /* ===== 로그인 / 일지 공통 ===== */
-  .login-wrap { display:flex; flex-direction:column; align-items:center; justify-content:center; min-height:60vh; gap:1.5rem; padding:2rem; text-align:center; }
-  .login-icon { font-size:3.5rem; }
-  .login-title { font-size:1.3rem; font-weight:900; color:var(--text); }
-  .login-desc { font-size:0.85rem; color:var(--muted); line-height:1.6; }
-  .btn-google { display:flex; align-items:center; gap:0.75rem; background:#fff; border:1.5px solid var(--border); border-radius:12px; padding:0.85rem 1.5rem; font-size:0.95rem; font-weight:700; color:var(--text); cursor:pointer; box-shadow:0 2px 8px rgba(0,0,0,0.07); transition:all 0.15s; font-family:'Noto Sans KR',sans-serif; }
-  .btn-google:hover { border-color:var(--accent); box-shadow:0 4px 16px rgba(60,65,205,0.13); }
-  .btn-google svg { width:20px; height:20px; flex-shrink:0; }
+  /* DIARY CSS - 주석처리됨
+  
 
-  /* 일지 목록 */
   .diary-header { display:flex; align-items:center; justify-content:space-between; padding:1rem 1.5rem 0.75rem; border-bottom:1px solid var(--border); }
   .diary-header-left { display:flex; align-items:center; gap:0.75rem; }
   .diary-user { font-size:0.78rem; color:var(--muted); }
@@ -223,7 +216,7 @@
   .btn-new-diary { position:fixed; bottom:2rem; right:1.5rem; background:var(--accent); color:#fff; border:none; border-radius:50px; padding:0.85rem 1.5rem; font-size:0.95rem; font-weight:700; cursor:pointer; box-shadow:0 4px 16px rgba(60,65,205,0.35); font-family:'Noto Sans KR',sans-serif; transition:all 0.15s; z-index:10; }
   .btn-new-diary:hover { transform:translateY(-2px); box-shadow:0 6px 24px rgba(60,65,205,0.45); }
 
-  /* 일지 작성/보기 */
+  
   .diary-form { padding:1.5rem; display:flex; flex-direction:column; gap:1.2rem; padding-bottom:6rem; }
   .diary-form label { font-size:0.8rem; font-weight:700; color:var(--text2); margin-bottom:0.35rem; display:block; }
   .diary-form input[type=text], .diary-form input[type=date], .diary-form input[type=time], .diary-form input[type=number], .diary-form textarea {
@@ -239,6 +232,11 @@
   .btn-delete-diary { background:none; border:1px solid var(--border); border-radius:10px; padding:0.65rem 1rem; font-size:0.85rem; color:var(--muted); cursor:pointer; font-family:'Noto Sans KR',sans-serif; }
   .btn-delete-diary:hover { border-color:var(--danger); color:var(--danger); }
   .diary-form-actions { display:flex; gap:0.75rem; }
+
+*/  
+*/
+   */
+  */
 
 </style>
 </head>
@@ -295,6 +293,9 @@
           <div class="home-card-desc">혼자 쓰는 메트로놈<br>인터넷 없이도 사용 가능</div>
         </div>
       </div>
+      <!-- 개인 일지 카드 (주석처리됨)
+<!-- DIARY: 개인 일지 카드 (주석처리됨)
+      <!-- DIARY: 개인 일지 카드 (주석처리됨)
       <div class="home-card" onclick="openDiary()">
         <div class="home-card-icon">📓</div>
         <div class="home-card-text">
@@ -302,10 +303,14 @@
           <div class="home-card-desc">나만의 연습 기록 관리<br>Google 로그인으로 기기 간 동기화</div>
         </div>
       </div>
+      -->
+-->
+      -->
     </div>
   </div>
 
   <!-- LOGIN -->
+  <!-- screen-login 화면 (주석처리됨)
   <div id="screen-login" class="screen">
     <div class="screen-header">
       <button class="btn-back" data-screen="screen-personal">← 개인 연습</button>
@@ -320,8 +325,10 @@
       </button>
     </div>
   </div>
+  -->
 
   <!-- DIARY LIST -->
+  <!-- screen-diary-list 화면 (주석처리됨)
   <div id="screen-diary-list" class="screen">
     <div class="diary-header">
       <div class="diary-header-left">
@@ -335,8 +342,10 @@
     </div>
     <button class="btn-new-diary" onclick="openNewDiary()">+ 새 일지</button>
   </div>
+  -->
 
   <!-- DIARY EDIT -->
+  <!-- screen-diary-edit 화면 (주석처리됨)
   <div id="screen-diary-edit" class="screen">
     <div class="diary-form-header">
       <button class="btn-back" onclick="showScreen('screen-diary-list')">← 목록</button>
@@ -366,6 +375,7 @@
       </div>
     </div>
   </div>
+  -->
 
   <!-- LOBBY -->
   <div id="screen-lobby" class="screen">
@@ -567,7 +577,9 @@
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/firebase/10.12.2/firebase-app-compat.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/firebase/10.12.2/firebase-database-compat.min.js"></script>
+<!-- DIARY: firebase-auth-compat (주석처리됨)
 <script src="https://cdnjs.cloudflare.com/ajax/libs/firebase/10.12.2/firebase-auth-compat.min.js"></script>
+-->
 <script>
 
 const firebaseConfig = {
@@ -582,8 +594,10 @@ const firebaseConfig = {
 
 const fbApp = firebase.initializeApp(firebaseConfig);
 const db = firebase.database();
+/* DIARY: auth 초기화 (주석처리됨)
 const auth = firebase.auth();
-let currentUser = null;
+/* DIARY: let currentUser = null; */
+*/
 
 // Firebase compat SDK helpers
 function ref(path) { return db.ref(path); }
@@ -740,6 +754,7 @@ async function createRoom() {
   const roomName = document.getElementById('input-room-name').value.trim();
   if (!name) { alert('닉네임을 입력하세요!'); return; }
   if (!roomName) { alert('방 이름을 입력하세요!'); return; }
+  if (!auth.currentUser) { try { await auth.signInAnonymously(); } catch(e) {} }
   const code = generateCode();
   S.myName = name; S.isHost = true; S.roomCode = code;
   await set(ref('rooms/' + code), { name: roomName, bpm: 120, timeSig: 4, isPlaying: false, startAt: null, setlist: [], activeSongId: null, createdAt: serverTimestamp() });
@@ -1107,7 +1122,7 @@ function changeBpm(d) {
   renderSetlist();
 }
 
-function setBpmSliderfunction(val) {
+function setBpmSlider(val) {
   S.bpm = parseInt(val); S.activeSongId = null;
   document.getElementById('current-song-name').textContent = '';
   document.getElementById('bpm-display').textContent = S.bpm;
@@ -1127,7 +1142,7 @@ function changeOffset(delta) {
   S.userOffsetMs = Math.min(200, Math.max(-200, S.userOffsetMs + delta));
   updateOffsetDisplay();
 }
-function setOffsetSliderfunction(val) {
+function setOffsetSlider(val) {
   S.userOffsetMs = parseInt(val); updateOffsetDisplay();
 }
 function updateOffsetDisplay() {
@@ -1183,21 +1198,27 @@ renderBeatDots(4);
 document.addEventListener('click', function(e) {
   const el = e.target.closest('[data-screen]');
   if (!el) return;
-  if (e.target.closest('[onclick]')) return;
+  // onclick이 직접 붙은 버튼만 스킵 (방 만들기 등)
+  if (e.target.tagName === 'BUTTON' && e.target.hasAttribute('onclick')) return;
+  // onclick이 붙은 카드 자체면 스킵 (개인 일지 카드 등)
+  if (el.hasAttribute('onclick')) return;
   const id = el.getAttribute('data-screen');
   if (id !== 'screen-solo' && typeof soloStop === 'function') soloStop();
   document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
   document.getElementById(id).classList.add('active');
 });
 
+/* DIARY JS - 주석처리됨 (복구하려면 이 주석 제거)
 
-// ===========================
-// 인증 + 개인 일지
-// ===========================
+=========================== 
+
 let currentDiaryId = null;
 
 auth.onAuthStateChanged(user => {
   currentUser = user;
+  if (!user) {
+    auth.signInAnonymously().catch(e => console.error('익명 로그인 실패:', e));
+  }
 });
 
 function openDiary() {
@@ -1244,12 +1265,12 @@ async function loadDiaries() {
       .sort((a, b) => (b[1].date + b[1].time) > (a[1].date + a[1].time) ? 1 : -1);
     container.innerHTML = entries.map(([id, d]) => {
       const dateStr = d.date ? d.date.replace(/-/g, '.') : '날짜 없음';
-      const timeStr = d.time ? ' ' + d.time : '';
-      return `<div class="diary-item" onclick="openEditDiary('${id}')">
-        <div class="diary-item-date">${dateStr}${timeStr}</div>
-        <div class="diary-item-song">${d.song || '곡 없음'}</div>
-        <div class="diary-item-preview">${d.memo || '메모 없음'}</div>
-      </div>`;
+      const timeStr = d.time ? ' ' + d.time + '시간' : '';
+      return '<div class="diary-item" onclick="openEditDiary('' + id + '')">'
+        + '<div class="diary-item-date">' + dateStr + timeStr + '</div>'
+        + '<div class="diary-item-song">' + (d.song || '곡 없음') + '</div>'
+        + '<div class="diary-item-preview">' + (d.memo || '메모 없음') + '</div>'
+        + '</div>';
     }).join('');
   } catch (e) {
     container.innerHTML = '<div class="diary-empty">불러오기 실패: ' + e.message + '</div>';
@@ -1329,6 +1350,8 @@ function updateCharCount() {
   document.getElementById('char-count').textContent = len;
 }
 
+
+*/
 </script>
 </body>
 </html>
