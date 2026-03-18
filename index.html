@@ -293,9 +293,6 @@
           <div class="home-card-desc">혼자 쓰는 메트로놈<br>인터넷 없이도 사용 가능</div>
         </div>
       </div>
-      <!-- 개인 일지 카드 (주석처리됨)
-<!-- DIARY: 개인 일지 카드 (주석처리됨)
-      <!-- DIARY: 개인 일지 카드 (주석처리됨)
       <div class="home-card" onclick="openDiary()">
         <div class="home-card-icon">📓</div>
         <div class="home-card-text">
@@ -303,14 +300,10 @@
           <div class="home-card-desc">나만의 연습 기록 관리<br>Google 로그인으로 기기 간 동기화</div>
         </div>
       </div>
-      -->
--->
-      -->
     </div>
   </div>
 
   <!-- LOGIN -->
-  <!-- screen-login 화면 (주석처리됨)
   <div id="screen-login" class="screen">
     <div class="screen-header">
       <button class="btn-back" data-screen="screen-personal">← 개인 연습</button>
@@ -325,10 +318,8 @@
       </button>
     </div>
   </div>
-  -->
 
   <!-- DIARY LIST -->
-  <!-- screen-diary-list 화면 (주석처리됨)
   <div id="screen-diary-list" class="screen">
     <div class="diary-header">
       <div class="diary-header-left">
@@ -342,10 +333,8 @@
     </div>
     <button class="btn-new-diary" onclick="openNewDiary()">+ 새 일지</button>
   </div>
-  -->
 
   <!-- DIARY EDIT -->
-  <!-- screen-diary-edit 화면 (주석처리됨)
   <div id="screen-diary-edit" class="screen">
     <div class="diary-form-header">
       <button class="btn-back" onclick="showScreen('screen-diary-list')">← 목록</button>
@@ -375,7 +364,6 @@
       </div>
     </div>
   </div>
-  -->
 
   <!-- LOBBY -->
   <div id="screen-lobby" class="screen">
@@ -577,9 +565,7 @@
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/firebase/10.12.2/firebase-app-compat.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/firebase/10.12.2/firebase-database-compat.min.js"></script>
-<!-- DIARY: firebase-auth-compat (주석처리됨)
 <script src="https://cdnjs.cloudflare.com/ajax/libs/firebase/10.12.2/firebase-auth-compat.min.js"></script>
--->
 <script>
 
 const firebaseConfig = {
@@ -594,9 +580,8 @@ const firebaseConfig = {
 
 const fbApp = firebase.initializeApp(firebaseConfig);
 const db = firebase.database();
-/* DIARY: auth 초기화 (주석처리됨)
 const auth = firebase.auth();
-/* DIARY: let currentUser = null; */
+let currentUser = null;
 
 // Firebase compat SDK helpers
 function ref(path) { return db.ref(path); }
